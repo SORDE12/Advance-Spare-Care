@@ -2,7 +2,9 @@ import React from 'react'
 
 const AllRoutes = () => {
   return (
-    <div>AllRoutes</div>
+    <div>
+      AllRoutes
+    </div>
   )
 }
 
