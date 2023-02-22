@@ -13,10 +13,8 @@ const orderSchema = mongoose.Schema({
   quantity: Number,
   address:String,
   image:String,
-  user: String,
   userID: String,
   admin: String,
-  adminID: String,
 });
 
 const OrderModel = mongoose.model("order", orderSchema);

@@ -20,7 +20,6 @@ AdminRouter.post("/register",authentication, async (req, res) => {
             name,
             email,
             password: hash,
-            users,
           });
           await newAdmin.save();
           res.status(200).send({ msg: "Admin Registration Suceessful" });

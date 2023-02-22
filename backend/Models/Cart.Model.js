@@ -11,7 +11,8 @@ const cartSchema = mongoose.Schema({
   delivery_time: { type: Number, required: true },
   reviews: { type: Number, required: true },
   isActive: { type: Boolean, required: true },
-  user: { type: String, required: true },
+  userID: { type: String, required: true },
+  adminID: { type: String, required: true },
   quantity: { type: Number, default: 1 },
 });
 
