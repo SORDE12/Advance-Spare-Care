@@ -13,9 +13,9 @@ const UserModel = mongoose.model("user", userSchema);
 
 module.exports = { UserModel };
 
-// "first_name": "String",
-// "last_name": "String",
-// "email": "f44gg5",
-// "mobile":2122,
-// "password": "String",
-// "address":"String"
+//  "first_name": "String",
+//  "last_name": "String",
+//  "email": "f44gg5",
+//  "mobile":2122,
+//  "password": "String",
+//  "address":"String"
