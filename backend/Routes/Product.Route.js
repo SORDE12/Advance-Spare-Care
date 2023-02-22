@@ -24,6 +24,8 @@ ProductRouter.get("/", async (req, res) => {
     sortBy,
     filter = "desc",
     skip,
+    maxRating,
+    minRating,
     limit = 10,
   } = req.query;
 
@@ -46,6 +48,28 @@ ProductRouter.get("/", async (req, res) => {
       .skip(skip < 1 ? 0 : skip * limit)
       .limit(limit);
     res.status(200).send(products);
+  } else if (maxRating && minRating) {
+    if (filter == "asc") {
+      const products = await ProductModel.find({
+        $and: [
+          { ratings: { $gte: minRating } },
+          { ratings: { $lte: maxRating } },
+        ],
+      })
+        .sort({ [filter]: 1 })
+        .skip(skip < 1 ? 0 : skip * limit)
+        .limit(limit);
+      res.status(200).send({ ratingsAsc: products });
+    } else {
+      // console.log(typeof +minRating, maxRating);
+      const products = await ProductModel.find({
+        $and: [{ ratings: { $gte: +minRating, $lte: +maxRating } }],
+      })
+        .sort({ [filter]: -1 })
+        .skip(skip < 1 ? 0 : skip * limit)
+        .limit(limit);
+      res.status(200).send({ ratingsDesc: products });
+    }
   } else if (min && max && filter == "asc" && limit) {
     const products = await ProductModel.find({
       $and: [{ price: { $gte: min } }, { price: { $lte: max } }],
@@ -56,7 +80,7 @@ ProductRouter.get("/", async (req, res) => {
     res.status(200).send(products);
   } else {
     const products = await ProductModel.find()
-      .sort({ [filter]: 1 })
+
       .skip(skip < 1 ? 0 : skip * limit)
       .limit(limit);
     res.status(200).send(products);
