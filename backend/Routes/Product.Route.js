@@ -15,25 +15,50 @@ ProductRouter.post("/add", authentication, async (req, res) => {
 });
 
 ProductRouter.get("/", async (req, res) => {
-  const { category, min, max, category1 } = req.query;
-  console.log(category1);
-  if (category && category1) {
+  const {
+    category,
+    min,
+    max,
+    category1,
+    rating,
+    sortBy,
+    filter = "desc",
+    skip,
+    limit = 10,
+  } = req.query;
+
+  if (category && category1 && (filter || limit)) {
     const products = await ProductModel.find({
-      $or: [ {category: { $regex: `${category}`, $options: "i" }}, {category: { $regex: `${category1}`, $options: "i" }}],
-    });
+      $or: [
+        { category: { $regex: `${category}`, $options: "i" } },
+        { category: { $regex: `${category1}`, $options: "i" } },
+      ],
+    })
+      .sort({ [filter]: 1 })
+      .skip(skip < 1 ? 0 : skip * limit)
+      .limit(limit);
     res.status(200).send(products);
-  } else if (category) {
+  } else if (category && filter == "asc" && limit) {
     const products = await ProductModel.find({
       category: { $regex: `${category}`, $options: "i" },
-    });
+    })
+      .sort({ [filter]: 1 })
+      .skip(skip < 1 ? 0 : skip * limit)
+      .limit(limit);
     res.status(200).send(products);
-  } else if (min && max) {
+  } else if (min && max && filter == "asc" && limit) {
     const products = await ProductModel.find({
       $and: [{ price: { $gte: min } }, { price: { $lte: max } }],
-    });
+    })
+      .sort({ [filter]: 1 })
+      .skip(skip < 1 ? 0 : skip * limit)
+      .limit(limit);
     res.status(200).send(products);
   } else {
-    const products = await ProductModel.find();
+    const products = await ProductModel.find()
+      .sort({ [filter]: 1 })
+      .skip(skip < 1 ? 0 : skip * limit)
+      .limit(limit);
     res.status(200).send(products);
   }
 });
