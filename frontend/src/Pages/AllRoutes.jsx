@@ -6,6 +6,7 @@ import Orders from '../Components/Admin_Components/Orders';
 import Customers from '../Components/Admin_Components/Customers';
 const AllRoutes = () => {
   return (
+
     <Routes>
       <Route path="/admin/dashboard" element={<Dashboard />} />
       <Route path="/listing" element={<Listing />} />
@@ -13,6 +14,7 @@ const AllRoutes = () => {
       <Route path="/customers" element={<Customers />} />
     </Routes>
   );
+
 }
 
 export default AllRoutes
