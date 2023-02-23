@@ -1,4 +1,5 @@
 
+
 import "./App.css";
 import Navbar from "./Components/Navbar";
 import AllRoutes from "./Pages/AllRoutes";
@@ -8,13 +9,15 @@ import Admin from "./Pages/Admin";
 
 
 
+
 function App() {
   return (
     <div className="App">
-
+     < Navbar/>
       <Admin />
       <AdminRoutes />
-
+      <AllRoutes/>
+      <Footer />
     </div>
   );
 }
