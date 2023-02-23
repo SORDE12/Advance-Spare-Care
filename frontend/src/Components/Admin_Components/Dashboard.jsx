@@ -133,6 +133,7 @@ const Dashboard = () => {
           </Text>
         </Box>
       </SimpleGrid>
+      <Text></Text>
     </Box>
   );
 };
