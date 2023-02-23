@@ -1,9 +1,9 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Navbar from './Components/Navbar';
 import AllRoutes from './Pages/AllRoutes';
 import Footer from './Components/Footer';
-import Products from './Pages/productsPage/Products';
+//import Products from './Pages/productsPage/Products';
 
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
       <AllRoutes/>
       
       <Footer />
+      {/* <Products/> */}
   
     </div>
   );
