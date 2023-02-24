@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Products.module.css";
 import { useParams } from "react-router";
+import { getProducts } from "../../Redux/Products/Products.action";
 import { Box, Checkbox, Select } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import ProductDiv from "../../Components/Products/ProductDiv";
@@ -8,11 +9,10 @@ import ProductDiv from "../../Components/Products/ProductDiv";
 
 const Products = () => {
 
-  useEffect(()=>{
-     fetch(`https://shy-ruby-piglet.cyclic.app/products?category=airfilter`).then((res)=>res.json()).then((res)=>console.log(res))
+  const [sort ,setSort]=useState("")
+  const [order ,setOrder]=useState("")
+  const [order ,setOrder]=useState("")
 
-     
-  },[])
   const { target } = useParams();
 
   let parts;
