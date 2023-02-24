@@ -4,7 +4,8 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import AllRoutes from "./Pages/AllRoutes";
 import Footer from "./Components/Footer";
-
+import Admin from "./Pages/Admin"
+import AdminRoutes from "./Components/Admin_Components/AdminRoutes";
 
 function App() {
   
@@ -12,14 +13,11 @@ function App() {
 
   return (
     <div className="App">
-
-      {adminPath && <Navbar />}
-     
-      <Admin />
-      <AdminRoutes />
-      <AllRoutes/>
+      {adminPath ? <Navbar />:<Admin/>}
+      
+      {adminPath ? <AllRoutes />: <AdminRoutes />}
+      
       {adminPath && <Footer />}
-    
     </div>
   );
 }
