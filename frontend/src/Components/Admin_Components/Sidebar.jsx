@@ -30,12 +30,11 @@ import {
  import { Link } from "react-router-dom";
 
 
-const LinkItems= [
-  { name: "Dashboard", icon: FiHome ,path:'/'},
-  { name: "Listing", icon: FiTrendingUp, path:'/listing' },
-  { name: "Orders", icon: FiCompass, path:'/orders'},
-  { name: "Customers", icon: FiStar, path:'/customers'}
-  
+const LinkItems = [
+  { name: "Dashboard", icon: FiHome, path: "/admin" },
+  { name: "Listing", icon: FiTrendingUp, path: "/admin/listing" },
+  { name: "Orders", icon: FiCompass, path: "/admin/orders" },
+  { name: "Customers", icon: FiStar, path: "/admin/customers" },
 ];
 
 export default function SidebarWithHeader(){
@@ -151,8 +150,9 @@ const MobileNav = ({ onOpen, ...rest }) => {
       border="8px solid white"
       borderLeft="0px"
       bg="#ffcc00"
-      position={'fixed'}
-      w={{base:'100%',md:'82.2%',lg:'82.2%'}}
+      position={"fixed"}
+      zIndex={1}
+      w={{ base: "100%", md: "82.2%", lg: "82.2%" }}
     >
       <IconButton
         display={{ base: "flex", md: "none" }}
@@ -167,9 +167,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
         fontSize="2xl"
         fontFamily="monospace"
         fontWeight="bold"
-      >
-       
-      </Text>
+      ></Text>
 
       <HStack spacing={{ base: "0", md: "6" }}>
         <IconButton

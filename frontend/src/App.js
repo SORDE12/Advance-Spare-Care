@@ -7,11 +7,19 @@ import Footer from "./Components/Footer";
 
 
 function App() {
+  
+  const adminPath = window.location.pathname === "/admin" ? false : true;
+
   return (
     <div className="App">
-     < Navbar/
+
+      {adminPath && <Navbar />}
+     
+      <Admin />
+      <AdminRoutes />
       <AllRoutes/>
-      <Footer /> 
+      {adminPath && <Footer />}
+    
     </div>
   );
 }
