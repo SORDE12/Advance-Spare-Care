@@ -52,7 +52,7 @@ UserRouter.post("/login", async (req, res) => {
           );
           res.status(200).send({ msg: "Login Suceessful", token: token });
         } catch (e) {
-          res.status(400).send({ msg: "Wrong Credentials", err: e.message });
+          res.status(200).send({ msg: "Wrong Credentials", err: e.message });
         }
       } else {
         res
