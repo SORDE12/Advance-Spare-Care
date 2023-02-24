@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Products.module.css";
 import { useParams } from "react-router";
+import { getProducts } from "../../Redux/Products/Products.action";
 import { Box, Checkbox, Select } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import ProductDiv from "../../Components/Products/ProductDiv";
-import data from "./data";
+//import data from "./data";
 
 const Products = () => {
+
+  const [sort ,setSort]=useState("")
+  const [order ,setOrder]=useState("")
+  const [order ,setOrder]=useState("")
+
   const { target } = useParams();
 
   let parts;
   let details;
   //console.log(data)
+
 
   let a =
     "Oil changes at prescribed intervals are still the best way to get the most miles out of any engine. Conventional oil can go 3K-5K miles between changes, with a somewhat longer interval for synthetic blend. Full synthetic can go for longer intervals, so be sure to check your owner’s manual recommendations. Whether you're opting for full synthetic (required by new-car warranties), synthetic high-mileage, conventional, high-mileage, or synthetic blend, you've come to the right place. We've got motor oil from top brands like FRAM, Mobil 1, Castrol, Valvoline, Pennzoil, Royal Purple, and much more, right here at Advance.";
@@ -252,9 +259,9 @@ const Products = () => {
 
         <div className={styles.productsMainSec}>
           <div className={styles.productMain}>
-            {data.map((e) => (
+            {/* {data.map((e) => (
               <ProductDiv key={e.id} data={e} />
-            ))}
+            ))} */}
           </div>
         </div>
       </div>

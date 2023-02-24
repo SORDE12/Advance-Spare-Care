@@ -1,0 +1,229 @@
+.that-discount-image-container {
+  color: black;
+  display: flex;
+  background-color: rgb(255, 204, 0);
+  width: 90%;
+  justify-content: space-between;
+  margin: auto;
+  border-top-left-radius: 20px;
+}
+.discount-div {
+  text-align: left;
+  padding: 1em;
+  font-weight: bold;
+}
+.discount-div > h1 {
+  font-size: 2.5em;
+}
+.discount-div > h3 {
+  font-size: 1.3em;
+}
+.discount-button {
+  background-color: black;
+  padding: 0.5em;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+}
+
+.after-banner-container-small-divs {
+  width: 90%;
+  margin: auto;
+  margin-top: 1em;
+}
+.griditems-of-small-banners {
+  text-align: left;
+  border-top-left-radius: 20px;
+  background-color: #1e1e1e;
+  color: white;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding: 10px;
+  border-top: none;
+  border-bottom: 4px solid rgb(255, 204, 0);
+  border-left: none;
+  border-right: none;
+}
+.car-div-in-yellow-bac-div {
+  background-color: black;
+  width: 4.5em;
+  border-radius: 50%;
+  border: 4px solid white;
+}
+.yellow-backgraud-div {
+  background-color: rgb(255, 204, 0);
+  margin: auto;
+  width: 90%;
+  padding: 1em;
+  display: flex;
+  margin-top: 0.5em;
+}
+.car-div-in-yellow-bac-div > img {
+  width: 100%;
+  padding: 1em;
+}
+.car-dics {
+  text-align: left;
+}
+.input-fields-in-homepage {
+  padding: 1em;
+}
+.input-fields-in-homepage > .first-input-field {
+  width: 16em;
+  padding: 5px;
+  border: 2px solid black;
+}
+.second-input-filed {
+  padding: 5px;
+  border: 2px solid black;
+}
+
+.third-input-filed {
+  padding: 5px;
+  border: 2px solid black;
+}
+.box-six {
+  text-align: left;
+  width: 90%;
+  margin: auto;
+  margin-top: 2em;
+}
+.six-box-divs {
+  height: 15em;
+  background-color: #1e1e1e;
+  color: white;
+  border-top: none;
+  border-bottom: 4px solid rgb(255, 204, 0);
+  border-left: none;
+  border-right: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+.first-p-tag {
+  font-size: 20px;
+  color: rgb(255, 204, 0);
+  font-weight: bold;
+}
+.six-box-img- {
+  width: 25%;
+  border: 3px solid yellow;
+  border-radius: 50%;
+  margin-top: -30px;
+  background-color: black;
+}
+.six-box-img- > img {
+  padding: 10px;
+}
+.fifth-container-of-homepage {
+  /* border: 1px solid red; */
+  width: 90%;
+  margin: auto;
+}
+.under-the-hood-saving {
+  /* border: 1px solid red; */
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  height: 20em;
+}
+.under-the-hood-saving > img {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.longbanner {
+  width: 90%;
+  margin: auto;
+}
+.Advance-Oil-Battery-Recycling {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  padding: 15px;
+  background-color: #1e1e1e;
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+  border-top: none;
+  border-bottom: 4px solid rgb(255, 204, 0);
+  border-left: none;
+  border-right: none;
+}
+.Advance-Oil-Battery-Recycling > div {
+  margin: auto;
+  display: flex;
+  gap: 10px;
+  padding: 2px;
+}
+.Advance-Oil-Battery-Recycling-buttons{
+  background-color: rgb(255, 204, 0);
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.last-grid-of-homepage{
+  width: 80%;
+  margin: auto;
+  line-height: 2em;
+  text-align: left;
+}
+@media (max-width: 1200px) {
+  .that-discount-image-container {
+    flex-direction: column;
+  }
+
+  .discount-div {
+    margin: auto;
+  }
+  .img-div-of-discount-banner {
+    margin: auto;
+  }
+  .yellow-backgraud-div {
+    flex-direction: column;
+  }
+  .car-div-in-yellow-bac-div {
+    margin: auto;
+  }
+  .car-dics {
+    margin: auto;
+    text-align: center;
+  }
+  .input-fields-in-homepage > .first-input-field {
+    width: 16em;
+    margin: auto;
+  }
+  .input-fields-in-homepage {
+    margin: auto;
+  }
+}
+@media (max-width: 500px) {
+  .discount-div > h1 {
+    font-size: 2.1em;
+  }
+  .discount-div > h3 {
+    font-size: 1em;
+  }
+  .input-fields-in-homepage > .first-input-field {
+    width: 14em;
+    margin: auto;
+    font-size: 15px;
+  }
+  .second-input-filed {
+    width: 14em;
+    margin: auto;
+    font-size: 15px;
+  }
+  .third-input-filed {
+    width: 14em;
+    margin: auto;
+    font-size: 15px;
+  }
+  .Advance-Oil-Battery-Recycling > div {
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+  }
+}
