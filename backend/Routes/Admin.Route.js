@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { AdminModel } = require("../Models/Admin.Model");
 const { authentication } = require("../Middlewares/admin.authentication");
+const { UserModel } = require("../Models/Users.Model");
 const AdminRouter = express.Router();
 
 
@@ -58,6 +59,17 @@ AdminRouter.post("/login", async (req, res) => {
     });
   } else {
     res.status(200).send({ msg: "Admin is not registered" });
+  }
+});
+
+AdminRouter.get("/allusers", authentication, async (req, res) => {
+  try {
+    const user = await UserModel.find();
+    res.status(200).send({ msg: "User Details", users: user });
+  } catch (e) {
+    res
+      .status(200)
+      .send({ msg: "Admin is not authenticated,Please login first" });
   }
 });
 
