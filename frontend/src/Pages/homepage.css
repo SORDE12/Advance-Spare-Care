@@ -2,10 +2,12 @@
   color: black;
   display: flex;
   background-color: rgb(255, 204, 0);
-  width: 90%;
+  width: 96%;
   justify-content: space-between;
   margin: auto;
   border-top-left-radius: 20px;
+  margin-top: 1em;
+
 }
 .discount-div {
   text-align: left;
@@ -29,7 +31,7 @@
 }
 
 .after-banner-container-small-divs {
-  width: 90%;
+  width: 96%;
   margin: auto;
   margin-top: 1em;
 }
@@ -55,7 +57,7 @@
 .yellow-backgraud-div {
   background-color: rgb(255, 204, 0);
   margin: auto;
-  width: 90%;
+  width: 96%;
   padding: 1em;
   display: flex;
   margin-top: 0.5em;
@@ -86,7 +88,7 @@
 }
 .box-six {
   text-align: left;
-  width: 90%;
+  width: 96%;
   margin: auto;
   margin-top: 2em;
 }
@@ -118,7 +120,7 @@
 }
 .fifth-container-of-homepage {
   /* border: 1px solid red; */
-  width: 90%;
+  width: 96%;
   margin: auto;
 }
 .under-the-hood-saving {
@@ -132,11 +134,11 @@
   border-top-left-radius: 10px;
 }
 .longbanner {
-  width: 90%;
+  width: 96%;
   margin: auto;
 }
 .Advance-Oil-Battery-Recycling {
-  width: 90%;
+  width: 96%;
   margin: auto;
   display: flex;
   padding: 15px;
@@ -164,7 +166,7 @@
   font-weight: bold;
 }
 .last-grid-of-homepage{
-  width: 80%;
+  width: 90%;
   margin: auto;
   line-height: 2em;
   text-align: left;

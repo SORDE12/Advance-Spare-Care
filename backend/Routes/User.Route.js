@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 const { UserModel } = require("../Models/Users.Model");
+const { userAuthentication } = require("../Middlewares/user.authentication");
 const UserRouter = express.Router();
 
 UserRouter.post("/register", async (req, res) => {
@@ -66,5 +67,19 @@ UserRouter.post("/login", async (req, res) => {
       .send({ msg: "User is not registered,Please register first" });
   }
 });
+
+UserRouter.get("/user",userAuthentication, async (req, res) => {
+  const { userID } = req.body;
+  // console.log(userID);
+  try {
+    const user = await UserModel.findOne({_id:userID});
+    res.status(200).send({ msg: "User Details", user: user });
+  } catch (e) {
+    res
+      .status(200)
+      .send({ msg: "User is not authenticated,Please login first" });
+  }
+});
+
 
 module.exports = { UserRouter };
