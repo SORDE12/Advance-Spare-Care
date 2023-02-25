@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { parts, NavNewArrival } from "./NavbarData";
 import { NavMenSlider } from "./NavSlider";
 import "./navbar.css";
@@ -37,9 +37,9 @@ export const AccountDropdown = () => {
       className={dropdown ? "Account-Submenu-Open" : "Account-Submenu-Close"}
       onClick={() => setDropdown(!dropdown)}
     >
-      <Link style={{fontWeight:"bold"}}>Account</Link>
+      <Link to="/user" style={{fontWeight:"bold"}}>Account</Link>
 
-      <Link to="/signin">Signin</Link>
+      <Link to="/login">Login</Link>
       <Link to="/register">Register</Link>
       <Link style={{fontWeight:"bold"}} to="/favorites">Quick Links</Link>
       <Link> Coupons & Deals</Link>

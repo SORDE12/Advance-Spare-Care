@@ -1,13 +1,35 @@
 import React from "react";
 import styles from "./ProductDiv.module.css";
-import { Box, Button, Image } from "@chakra-ui/react";
+import { Box, Button, Image, useToast } from "@chakra-ui/react";
 import { StarIcon} from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Redux/Cart/cart.action";
 let dollarIndianLocale = Intl.NumberFormat("en-IN");
 
 
 const ProductDiv = ({ data }) => {
-  const { image, desc, price, strike_price, ratings ,id, category, brand, reviews} = data;
+  const { image, desc, price, strike_price, ratings ,_id, category, brand, reviews} = data;
+  const dispatch = useDispatch();
+  const toast=useToast()
+
+  const handleAddToCart = async () => {
+
+    let item = {
+      id: _id,
+      product: data,
+      qty: 1,
+    };
+    console.log(item)
+    await dispatch(addToCart(item));
+    toast({
+      title: "Added to Cart",
+      description: "Item has successfully added to Cart",
+      status: "success",
+      duration: 6000,
+      isClosable: true,
+    });
+  };
 
   return (
     <Box
@@ -18,7 +40,7 @@ const ProductDiv = ({ data }) => {
       overflow="hidden"
       textAlign={"left"}
     >
-      <Link to ={`/product-details/${id}`}><Image margin="auto" height="250px" src={image} alt={image} /></Link>
+<Image margin="auto" height="250px" src={image} alt={image} />
       
       <Box display={"flex"} flexDirection={"row"}>
         <Box p={2} width={"80%"}>
@@ -84,14 +106,16 @@ const ProductDiv = ({ data }) => {
 
           </Box>
         </Box>
-        <Box >
-          <Image
+      </Box>
+      <div style={{display:"flex", flexDirection:"row" , alignItems:"center", gap:"50px"}}>
+      <Button style={{margin:"15px" , padding:"10px"}} onClick={handleAddToCart}>Add to Cart</Button>
+      
+      <Image
             boxSize="30px"
             src="https://images.bewakoof.com/web/Wishlist.svg"
           />
-        </Box>
-        <Button>Add to Cart</Button>
-      </Box>
+      </div>
+     
     </Box>
   );
 };
