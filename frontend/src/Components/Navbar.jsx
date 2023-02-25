@@ -8,17 +8,18 @@ import { CiLocationOn } from "react-icons/ci";
 import { BsPersonCircle } from "react-icons/bs";
 import { BsBag } from "react-icons/bs";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import NavHamburger from "./NavHamburger"
-import { AccountDropdown } from './Dropdown';
-import { useState } from 'react';
+import NavHamburger from "./NavHamburger";
+import { AccountDropdown } from "./Dropdown";
+import { useState } from "react";
 import Navbar2 from "./Navbar2";
-const Navbar = () => {
-  const [DropdownAccount, setDropdownAccount] = useState(false)
 
-  const navigate = useNavigate()
+const Navbar = () => {
+const [DropdownAccount, setDropdownAccount] = useState(false);
+
+  const navigate = useNavigate();
   const bagfunc = () => {
-      navigate('/cart')
-  }
+    navigate("/cart");
+  };
   return (
     <>
       <div className="navbar1">
@@ -28,7 +29,6 @@ const Navbar = () => {
               <img src={logo} alt="" />
             </Link>
           </div>
-
           <div className="add-a-vehicle">
             <div>
               <img src={car} />
@@ -36,7 +36,6 @@ const Navbar = () => {
               <ChevronDownIcon boxSize={25} />
             </div>
           </div>
-
           <div className="nav1-right">
             <div className="nav1-search-div">
               <input
@@ -58,10 +57,11 @@ const Navbar = () => {
               <CiLocationOn size={25} color={"white"} />
               <p>Choose a store</p>
             </div>
-            <div className="store-in-navbar"
-                 onMouseEnter={() => setDropdownAccount(true)}
-                        onMouseLeave={() => setDropdownAccount(false)}>
-
+            <div
+              className="store-in-navbar"
+              onMouseEnter={() => setDropdownAccount(true)}
+              onMouseLeave={() => setDropdownAccount(false)}
+            >
               <BsPersonCircle size={25} color={"white"} />
               {DropdownAccount && <AccountDropdown />}
               <p>Account</p>
@@ -74,8 +74,7 @@ const Navbar = () => {
         </div>
         <NavHamburger />
       </div>
-
-      <Navbar2/>
+      <Navbar2 />
     </>
   );
 };

@@ -3,11 +3,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { parts, NavNewArrival } from "./NavbarData";
 import { NavMenSlider } from "./NavSlider";
-import "./navbar.css"
+import "./navbar.css";
 
 export const PartsDropdown = () => {
   const [dropdown, setDropdown] = useState(false);
-  
+
   return (
     <div className="nav-men-main-con">
       <div
@@ -28,20 +28,30 @@ export const PartsDropdown = () => {
   );
 };
 
-
-
 export const AccountDropdown = () => {
   const [dropdown, setDropdown] = useState(false);
   return (
-    <div 
-     style={{color:"black"}}
+    <div
+      style={{ color: "black" }}
       id="Account-Submenu"
       className={dropdown ? "Account-Submenu-Open" : "Account-Submenu-Close"}
       onClick={() => setDropdown(!dropdown)}
     >
-      <Link to="/signin">signin</Link>
+      <Link style={{fontWeight:"bold"}}>Account</Link>
+
+      <Link to="/signin">Signin</Link>
       <Link to="/register">Register</Link>
-      <Link to="/favorites">Favorites</Link>
+      <Link style={{fontWeight:"bold"}} to="/favorites">Quick Links</Link>
+      <Link> Coupons & Deals</Link>
+      <Link>Gift Card Balance Check</Link>
+      <Link>Store Locator</Link>
+      <Link>Videos</Link>
+      <Link>Order Lookup</Link>
+      <Link>Speed Perkseos</Link>
+      <Link>Order Lookup</Link>
+      <Link>Program Information</Link>
     </div>
   );
 };
+
+

@@ -1,9 +1,9 @@
 
 export const parts = [
-    { id: 1, title: "Filters", path: "#" },
-    { id: 1, title: "Brakes", path: "#" },
-    { id: 1, title: "Exhaust", path: "#" },
-    { id: 1, title: "Engine, Ignition, & Fuel", path: "#" },
+    { id: 1, title: "FILTERS", path: "#" },
+    { id: 1, title: "BRAKES", path: "#" },
+    { id: 1, title: "EXHAUST", path: "#" },
+    { id: 1, title: "ENGINE, IGNITION, & FUEL", path: "#" },
     { id: 2, title: "Air Filters", path: "#" },
     { id: 2, title: "Brake Pads - Front", path: "#" },
     { id: 2, title: "Catalytic Converters", path: "#" },

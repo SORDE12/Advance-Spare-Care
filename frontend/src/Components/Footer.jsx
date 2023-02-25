@@ -11,6 +11,7 @@ import help from "../Assets/-1_orig (1).jpeg";
 import location from "../Assets/-1_orig (2).jpeg";
 import store from "../Assets/-1_orig (3).jpeg";
 import mobile from "../Assets/-1_orig (4).jpeg";
+
 const Footer = () => {
   return (
     <>
@@ -108,7 +109,6 @@ const Footer = () => {
                   CUSTOMER SUPPORT
                 </Text>
                 <br />
-
                 <Text> Accessibility Statement</Text>
                 <Text>Contact Us</Text>
                 <Text>Forgot Password</Text>
@@ -126,7 +126,6 @@ const Footer = () => {
             <GridItem className="grid-items-in-footer">
               <div>
                 <Text className="top-name-of-sub-contents-in-footer">
-                  {" "}
                   ABOUT US
                 </Text>
                 <br />
