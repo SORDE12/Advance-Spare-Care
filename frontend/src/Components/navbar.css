@@ -48,7 +48,7 @@
   color: white;
   /* border: 1px solid grey; */
   display: grid;
-  grid-template-columns: repeat(4, 52% 20% 15% 13%);
+  grid-template-columns: repeat(4, 50% 20% 15% 13%);
   gap: 5px;
 }
 

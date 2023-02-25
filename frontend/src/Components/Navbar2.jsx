@@ -23,8 +23,8 @@ export default function Navbar2() {
           onMouseEnter={() => setDropdownNewarrival(true)}
           onMouseLeave={() => setDropdownNewarrival(false)}
         >
-          {" "}
-          <Link style={{fontWeight:"bold"}}>Air Filter</Link>
+      
+          <Link to="/products" style={{fontWeight:"bold"}}>All</Link>
           {DropdownNewarrival && <PartsDropdown />}
         </div>
         <div
@@ -32,7 +32,7 @@ export default function Navbar2() {
           onMouseLeave={() => setDropdownMen(false)}
         >
           {" "}
-          <Link style={{fontWeight:"bold"}}>Air tank Filter</Link>
+          <Link style={{fontWeight:"bold"}}>Air Filter</Link>
           {DropdownMen && <PartsDropdown />}
         </div>
         <div
