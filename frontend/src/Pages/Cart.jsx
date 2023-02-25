@@ -15,15 +15,27 @@ import { useNavigate } from "react-router";
 import { Flex, Spinner, useToast, Image, Box, Heading } from "@chakra-ui/react";
 let dollarIndianLocale = Intl.NumberFormat("en-IN");
 
-
 const Cart = () => {
-  const { loading, products, error } = useSelector(
-    (store) => store.cartManager
-  );
-  console.log(products)
-  return (
-    <div>Cart</div>
-  )
-}
+  const {products,loading,error} = useSelector((store) => store.cartManager);
+  const dispatch = useDispatch();
+  const [count,setCount]=useState([]);
+  
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    dispatch(getCartProducts(token));
+    setCount(products)
+  }, [token,count]);
+  console.log(products,"count",count);
 
-export default Cart
+  return <div>
+    {products && products.map((el)=>(
+      <div key={el._id}>
+        <h1>{el.price}</h1>
+        <button>Update</button>
+        <button onClick={()=>{dispatch(deleteItemFromCart(el._id,token));setCount(products)}}>Delete</button>
+      </div>
+    ))}
+  </div>;
+};
+
+export default Cart;
