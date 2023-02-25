@@ -5,7 +5,7 @@ import {  Route, Routes } from 'react-router-dom'
 import Homepage from './Homepage'
 import Login from './Login'
 
-import Products from './productsPage/Products
+import Products from './productsPage/Products'
 import Userpage from "./Userpage";
 
 
