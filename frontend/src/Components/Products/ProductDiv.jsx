@@ -9,24 +9,21 @@ let dollarIndianLocale = Intl.NumberFormat("en-IN");
 
 
 const ProductDiv = ({ data }) => {
+  console.log({data})
   const { image, desc, price, strike_price, ratings ,_id, category, brand, reviews} = data;
   const dispatch = useDispatch();
   const toast=useToast()
+  const token=localStorage.getItem("token")
 
-  const handleAddToCart = async () => {
+  const handleAddToCart = (_id,token) => {
+    console.log(_id)
 
-    let item = {
-      id: _id,
-      product: data,
-      qty: 1,
-    };
-    console.log(item)
-    await dispatch(addToCart(item));
+    dispatch(addToCart(_id,token));
     toast({
       title: "Added to Cart",
       description: "Item has successfully added to Cart",
       status: "success",
-      duration: 6000,
+      duration: 1000,
       isClosable: true,
     });
   };
@@ -108,7 +105,7 @@ const ProductDiv = ({ data }) => {
         </Box>
       </Box>
       <div style={{display:"flex", flexDirection:"row" , alignItems:"center", gap:"50px"}}>
-      <Button style={{margin:"15px" , padding:"10px"}} onClick={handleAddToCart}>Add to Cart</Button>
+      <Button style={{margin:"15px" , padding:"10px"}} onClick={()=>handleAddToCart(_id,token)}>Add to Cart</Button>
       
       <Image
             boxSize="30px"

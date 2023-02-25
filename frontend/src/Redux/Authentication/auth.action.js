@@ -44,7 +44,7 @@ export const authLogin = (data) => async (dispatch) => {
       "https://shy-ruby-piglet.cyclic.app/users/login",
       data
     );
-    // console.log("res: ", res);
+    console.log("res: ", res);
       if(res.data.token){
         dispatch({
           type: AUTH_LOGIN_SUCCESS,
