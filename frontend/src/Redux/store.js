@@ -9,13 +9,13 @@ import {
 import authReducer from "./Authentication/auth.reducer";
   
 //   import { cartReducer } from "./cart/reducer";
-//   import productsReducer from "./products/reducer";
+import  {productReducer} from "./Products/product.reducer";
   
 //   import { adminReducer } from "./Admin/admin.reducer"
   
   const rootReducer = combineReducers({
     auth: authReducer,
-    // products: productsReducer,
+    productManager: productReducer,
     // carts: cartReducer,
     // admin: adminReducer
   });
