@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ProductDiv.module.css";
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Button, Image } from "@chakra-ui/react";
 import { StarIcon} from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 let dollarIndianLocale = Intl.NumberFormat("en-IN");
@@ -90,6 +90,7 @@ const ProductDiv = ({ data }) => {
             src="https://images.bewakoof.com/web/Wishlist.svg"
           />
         </Box>
+        <Button>Add to Cart</Button>
       </Box>
     </Box>
   );

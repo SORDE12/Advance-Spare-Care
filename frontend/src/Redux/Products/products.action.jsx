@@ -4,24 +4,60 @@ import * as types from "./products.types"
 const BASE_URL="https://shy-ruby-piglet.cyclic.app"
 
 export const getProducts =
-  ({ target, page = 1, limit = 10, sort, order }) =>
+  (params) =>
+ 
   (dispatch) => {
-    dispatch({ type: types.GET_PRODUCT_LOADING });
+    console.log("10",params)
+    let carArr=params.params;
+    let category=carArr[0]
+    let category1=carArr[1];
+    
+    if(category && category1){
 
-    return axios
-      .get(`${BASE_URL}/products`, {
-        params: {
-          target,
-          _page: page,
-          _limit: limit,
-          _sort: sort,
-          _order: order,
-        },
-      })
-      .then((res) => {
-        dispatch({ type: types.GET_PRODUCT_SUCCESS, payload: res.data });
-      })
-      .catch(() => {
-        dispatch({ type: types.GET_PRODUCT_ERROR });
-      });
+      dispatch({ type: types.GET_PRODUCT_LOADING });
+  
+      return axios
+        .get(`${BASE_URL}/products?category=${category}&category=${category1}`)
+        .then((res) => {
+          dispatch({ type: types.GET_PRODUCT_SUCCESS, payload: res.data });
+          
+        })
+        .catch(() => {
+          dispatch({ type: types.GET_PRODUCT_ERROR });
+        });
+    }
+      else if(params.params.sort && params.params.order){
+
+        console.log("sorting",params.params.sort,params.params.order)
+
+        dispatch({ type: types.GET_PRODUCT_LOADING });
+    
+        return axios
+          .get(`${BASE_URL}/products?_sort=${params.params.sort}&_order=${params.params.order}`)
+          .then((res) => {
+            dispatch({ type: types.GET_PRODUCT_SUCCESS, payload: res.data });
+            
+          })
+          .catch(() => {
+            dispatch({ type: types.GET_PRODUCT_ERROR });
+          });
+      }
+      else{
+
+        dispatch({ type: types.GET_PRODUCT_LOADING });
+    
+        return axios
+          .get(`${BASE_URL}/products`,params)
+          .then((res) => {
+            dispatch({ type: types.GET_PRODUCT_SUCCESS, payload: res.data });
+            console.log(params)
+          })
+          .catch(() => {
+            dispatch({ type: types.GET_PRODUCT_ERROR });
+          });
+      }
+   
+    
   };
+
+
