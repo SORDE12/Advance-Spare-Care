@@ -11,52 +11,55 @@ import Pagination from "../../Components/Products/Pagination";
 //import data from "./data";
 
 const Products = () => {
+  const [sort, setSort] = useState("");
+  const [order, setOrder] = useState("");
 
-  const [sort ,setSort]=useState("")
-  const [order ,setOrder]=useState("")
-
-  const [searchParams,setSearchParams]=useSearchParams()
-  const initialCategory=searchParams.getAll("category")
-  const [category,setCategory]=useState(initialCategory || [])
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialCategory = searchParams.getAll("category");
+  const [category, setCategory] = useState(initialCategory || []);
   //const { target } = useParams();
-  const [page,setPage]=useState(1)
-  const dispatch=useDispatch()
-  const limit=10
-  let totalPages=4
+  const [page, setPage] = useState(1);
+  const dispatch = useDispatch();
+  const limit = 10;
+  let totalPages = 4;
 
-
-  const {loading , error, products}=useSelector((store)=>store.productManager)
-const location =useLocation()
+  const { loading, error, products } = useSelector(
+    (store) => store.productManager
+  );
+  const location = useLocation();
 
   //console.log(location)
 
-
-
-  useEffect(()=>{
-    let params={}
-    if(location || products.length===0){
-      const getProductsParams={
-        params:{
+  useEffect(() => {
+    let params = {};
+    if (location || products.length === 0) {
+      const getProductsParams = {
+        params: {
           category,
           sort,
-          order
-        }
-      }
-      dispatch(getProducts(getProductsParams))
-  // console.log(getProductsParams)
+          order,
+        },
+      };
+      dispatch(getProducts(getProductsParams));
+      // console.log(getProductsParams)
     }
-    params.category=category
-    setSearchParams(params)
-  
-
-  },[products.length,dispatch,category,setSearchParams,location.search,sort,order])
-
+    params.category = category;
+    setSearchParams(params);
+  }, [
+    products.length,
+    dispatch,
+    category,
+    setSearchParams,
+    location.search,
+    sort,
+    order,
+  ]);
 
   let parts;
   let details;
   //console.log(data)
 
-const target="Filter"
+  const target = "Filter";
   let a =
     "Oil changes at prescribed intervals are still the best way to get the most miles out of any engine. Conventional oil can go 3K-5K miles between changes, with a somewhat longer interval for synthetic blend. Full synthetic can go for longer intervals, so be sure to check your owner’s manual recommendations. Whether you're opting for full synthetic (required by new-car warranties), synthetic high-mileage, conventional, high-mileage, or synthetic blend, you've come to the right place. We've got motor oil from top brands like FRAM, Mobil 1, Castrol, Valvoline, Pennzoil, Royal Purple, and much more, right here at Advance.";
 
@@ -64,21 +67,18 @@ const target="Filter"
     "Oil changes at prescribed intervals are still the best way to get the most miles out of any engine. Conventional oil can go 3K-5K miles between changes, with a somewhat longer interval for synthetic blend. Full synthetic can go for longer intervals, so be sure to check your owner’s manual recommendations. Whether you're opting for full synthetic (required by new-car warranties), synthetic high-mileage, conventional, high-mileage, or synthetic blend, you've come to the right place. We've got motor oil from top brands like FRAM, Mobil 1, Castrol, Valvoline, Pennzoil, Royal Purple, and much more, right here at Advance.";
   target === "Filter" ? (parts = "Filter") : (parts = "Oil & Fluids");
   target === "Filter" ? (details = a) : (details = b);
-const handleFilterCheckbox=(e)=>{
-  
-  const newCategories=[...category]
-  if(newCategories.includes(e.target.value)){
-    newCategories.splice(newCategories.indexOf(e.target.value),1)
-  }else{
-    newCategories.push(e.target.value)
+  const handleFilterCheckbox = (e) => {
+    const newCategories = [...category];
+    if (newCategories.includes(e.target.value)) {
+      newCategories.splice(newCategories.indexOf(e.target.value), 1);
+    } else {
+      newCategories.push(e.target.value);
+    }
+    setCategory(newCategories);
+  };
+  function handleClick(val) {
+    setPage(val);
   }
-  setCategory(newCategories)
-}
-function handleClick(val){
-
-  setPage(val)
-
-}
 
   return (
     <div className={styles.productSection}>
@@ -114,11 +114,10 @@ function handleClick(val){
             variant="yellow"
             w={"200px"}
             className={styles.sortMain}
-            onChange={(e)=>{
-              let arr=e.target.value.split("-")
-              setSort(arr[0])
-              setOrder(arr[1])
-              
+            onChange={(e) => {
+              let arr = e.target.value.split("-");
+              setSort(arr[0]);
+              setOrder(arr[1]);
             }}
           >
             <option value="-">Popular</option>
@@ -135,12 +134,39 @@ function handleClick(val){
 
       <div className={styles.bodyMainSec}>
         <div className={styles.filterMainSec}>
-        <div className={styles.filterDiv}>
-            <h1 style={{ padding: "10px",  }}>Category</h1>
-            <div style={{ padding: "10px" , display:"flex", flexDirection:"column"}}>
-              <Checkbox colorScheme="gray" onChange={handleFilterCheckbox} checked={category.includes("Air Filter")} value="Air Filter">Air Filter</Checkbox>
-              <Checkbox colorScheme="gray" value="Motor Oil" checked={category.includes("Motor Oil")} onChange={handleFilterCheckbox} >Motor Oil</Checkbox>
-              <Checkbox colorScheme="gray" value="Turbo Chargers" checked={category.includes("Turbo Chargers")} onChange={handleFilterCheckbox}>Turbo Chargers</Checkbox>
+          <div className={styles.filterDiv}>
+            <h1 style={{ padding: "10px" }}>Category</h1>
+            <div
+              style={{
+                padding: "10px",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Checkbox
+                colorScheme="gray"
+                onChange={handleFilterCheckbox}
+                checked={category.includes("Air Filter")}
+                value="Air Filter"
+              >
+                Air Filter
+              </Checkbox>
+              <Checkbox
+                colorScheme="gray"
+                value="Motor Oil"
+                checked={category.includes("Motor Oil")}
+                onChange={handleFilterCheckbox}
+              >
+                Motor Oil
+              </Checkbox>
+              <Checkbox
+                colorScheme="gray"
+                value="Turbo Chargers"
+                checked={category.includes("Turbo Chargers")}
+                onChange={handleFilterCheckbox}
+              >
+                Turbo Chargers
+              </Checkbox>
             </div>
           </div>
 
@@ -269,9 +295,7 @@ function handleClick(val){
               <Checkbox colorScheme="gray">Ship to Home </Checkbox>
             </div>
           </div>
-         
 
-       
           <div className={styles.filterDiv}>
             <h1 style={{ padding: "10px" }}>Brand</h1>
             <div
@@ -333,18 +357,28 @@ function handleClick(val){
             </div>
           </div>
         </div>
-
-        <div className={styles.productsMainSec}>
-          <div className={styles.productMain}>
-            {products.length>0 && products.map((e) => (
-              <ProductDiv key={e.id} data={e} />
-            ))}
+        <div style={{display:"flex" , flexDirection:"colu"}}>
+          <div className={styles.productsMainSec}>
+            <div className={styles.productMain}>
+              {products.length > 0 &&
+                products.map((e) => <ProductDiv key={e.id} data={e} />)}
+            </div>
+          </div>
+          <div
+            style={{
+              margin: "auto",
+              gap: "2rem",
+              padding: "2rem",
+            }}
+          >
+            <Pagination
+              page={page}
+              totalPages={totalPages}
+              handleClick={handleClick}
+            />
           </div>
         </div>
       </div>
-        <div style={{ margin: "auto",border:"1px solid black",zIndex:"10", gap: "2rem",  padding: "2rem" }}>
-                <Pagination page={page} totalPages={totalPages} handleClick={handleClick}/>
-        </div>
     </div>
   );
 };
