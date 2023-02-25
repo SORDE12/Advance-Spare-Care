@@ -3,28 +3,40 @@ import * as types from "./cart.types";
 
 const BASE_URL = "https://shy-ruby-piglet.cyclic.app";
 
-export const getCartProducts = (email) => (dispatch) => {
-  dispatch({ type: types.GET_CART_LOADING });
-  return axios
-    .get(`${BASE_URL}/carts?user=${email}`)
-    .then((res) => {
-      dispatch({ type: types.GET_CART_SUCCESS, payload: res.data });
+export const getCartProducts = (token) => async(dispatch) => {
+  try{
+    dispatch({ type: types.GET_CART_LOADING });
+    let cartData=await fetch(`${BASE_URL}/cart`,{
+      headers:{
+        Authorization: token,
+      }
     })
-    .catch(() => {
-      dispatch({ type: types.GET_CART_ERROR });
-    });
+     cartData=await cartData.json();
+     console.log(cartData)
+        dispatch({ type: types.GET_CART_SUCCESS, payload: cartData.cartProducts });
+    
+  }catch(e){
+    dispatch({ type: types.GET_CART_ERROR });
+  }
 };
 
-export const deleteItemFromCart = (id) => (dispatch) => {
-  dispatch({ type: types.DELETE_CART_LOADING });
-  return axios
-    .delete(`${BASE_URL}/carts/${id}`)
-    .then(() => {
-      dispatch({ type: types.DELETE_CART_SUCCESS });
+export const deleteItemFromCart = (id,token) => async(dispatch) => {
+  
+  try{
+    dispatch({ type: types.DELETE_CART_LOADING });
+    let cartData=await fetch(`${BASE_URL}/cart/delete/${id}`,{
+      method:"DELETE",
+      headers:{
+        Authorization: token,
+      }
     })
-    .catch(() => {
-      dispatch({ type: types.DELETE_CART_ERROR });
-    });
+    // await cartData.json();
+    console.log(cartData)
+        dispatch({ type: types.DELETE_CART_SUCCESS});
+    
+  }catch(e){
+    dispatch({ type: types.DELETE_CART_ERROR });
+  }
 };
 
 export const editCartItem =
