@@ -6,6 +6,7 @@ const { AdminRouter } = require("./Routes/Admin.Route");
 const { UserRouter } = require("./Routes/User.Route");
 const { ProductRouter } = require("./Routes/Product.Route");
 const { CartRouter } = require("./Routes/Cart.Router");
+const { WishlistRouter } = require("./Routes/Wishlist.Route");
 const app = express();
 app.use(express.json());
 
@@ -23,6 +24,7 @@ app.use("/admin", AdminRouter);
 app.use("/users", UserRouter);
 app.use("/products", ProductRouter);
 app.use("/cart", CartRouter);
+app.use("/wishlist", WishlistRouter);
 
 
 app.listen(process.env.port, async () => {

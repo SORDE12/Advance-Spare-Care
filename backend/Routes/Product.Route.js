@@ -15,22 +15,91 @@ ProductRouter.post("/add", authentication, async (req, res) => {
 });
 
 ProductRouter.get("/", async (req, res) => {
-  const { category, min, max, category1 } = req.query;
-  console.log(category1);
+  const {
+    category,
+    min,
+    max,
+    category1,
+    _sort,
+    skip=1,
+    limit=12,
+    _order,
+    maxRating,
+    minRating,
+  } = req.query;
+
   if (category && category1) {
     const products = await ProductModel.find({
-      $or: [ {category: { $regex: `${category}`, $options: "i" }}, {category: { $regex: `${category1}`, $options: "i" }}],
-    });
+      $or: [
+        { category: { $regex: `${category}`, $options: "i" } },
+        { category: { $regex: `${category1}`, $options: "i" } },
+      ],
+    }).skip(skip < 1 ? 0 : skip * limit)
+    .limit(limit);
+
     res.status(200).send(products);
   } else if (category) {
     const products = await ProductModel.find({
       category: { $regex: `${category}`, $options: "i" },
-    });
+    }).skip(skip < 1 ? 0 : skip * limit)
+    .limit(limit);
+
     res.status(200).send(products);
-  } else if (min && max) {
+  } else if (maxRating && minRating) {
+    const products = await ProductModel.find({
+      $and: [
+        { ratings: { $gte: minRating } },
+        { ratings: { $lte: maxRating } },
+      ],
+    }).skip(skip < 1 ? 0 : skip * limit)
+    .limit(limit);
+    res.status(200).send(products);
+  } 
+  else if (_order && _sort==="price") {
+    if(_order=="asc"){
+      const products = await ProductModel.find().sort({price:1}).skip(skip < 1 ? 0 : skip * limit)
+      .limit(limit);;
+      res.status(200).send(products);
+    }else{
+      const products = await ProductModel.find().sort({price:-1}).skip(skip < 1 ? 0 : skip * limit)
+      .limit(limit);;
+      res.status(200).send(products);
+    }
+    
+    
+  } 
+  else if (_order && _sort==="ratings") {
+    if(_order=="asc"){
+      const products = await ProductModel.find().sort({ratings:1}).skip(skip < 1 ? 0 : skip * limit)
+      .limit(limit);;
+      res.status(200).send(products);
+    }else{
+      const products = await ProductModel.find().sort({ratings:-1}).skip(skip < 1 ? 0 : skip * limit)
+      .limit(limit);;
+      res.status(200).send(products);
+    }
+    
+    
+  } 
+  else if (_order && _sort==="reviews") {
+    if(_order=="asc"){
+      const products = await ProductModel.find().sort({reviews:1}).skip(skip < 1 ? 0 : skip * limit)
+      .limit(limit);;
+      res.status(200).send(products);
+    }else{
+      const products = await ProductModel.find().sort({reviews:-1}).skip(skip < 1 ? 0 : skip * limit)
+      .limit(limit);;
+      res.status(200).send(products);
+    }
+    
+    
+  } 
+  else if (min && max) {
     const products = await ProductModel.find({
       $and: [{ price: { $gte: min } }, { price: { $lte: max } }],
-    });
+    }).skip(skip < 1 ? 0 : skip * limit)
+    .limit(limit);;
+
     res.status(200).send(products);
   } else {
     const products = await ProductModel.find();
