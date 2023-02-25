@@ -92,7 +92,7 @@ export const cartReducer = (state = initState, { type, payload }) => {
         ...state,
         loading: false,
         error: false,
-       
+       products:payload
       };
     }
     default: {

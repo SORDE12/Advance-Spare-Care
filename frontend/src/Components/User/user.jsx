@@ -41,9 +41,9 @@ const User = ({
       setTimeout(() => {
         navigate("/")
       }, 500);
-      // dispatch({ type: AUTH_LOGIN_RESET });
+      dispatch({ type: AUTH_LOGIN_RESET });
     } 
-  },[authState.data.isAuthenticated,authState.userLogout.message,navigate,toast])
+  },[authState.data.isAuthenticated,authState.userLogout.message,navigate,toast,dispatch])
 
   if(authState.data.isAuthenticated===false){
     setTimeout(() => {

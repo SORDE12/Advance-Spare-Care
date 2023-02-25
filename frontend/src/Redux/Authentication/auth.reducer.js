@@ -50,6 +50,7 @@ export default function authReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         userLogin: { loading: false, error: false, message: "" },
+        userLogout: { message: "" }
       };
     case AUTH_LOGOUT:
       localStorage.removeItem("token");

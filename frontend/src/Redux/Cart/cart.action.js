@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as types from "./cart.types";
 
-const BASE_URL = "https://bindass-db.onrender.com";
+const BASE_URL = "https://shy-ruby-piglet.cyclic.app";
 
 export const getCartProducts = (email) => (dispatch) => {
   dispatch({ type: types.GET_CART_LOADING });
@@ -44,15 +44,21 @@ export const editCartItem =
       });
   };
 
-export const addToCart = (item) => (dispatch) => {
-  dispatch({ type: types.ADD_CART_LOADING });
-  return axios
-    .post(`${BASE_URL}/carts`, item)
-    .then(() => {
-      dispatch({ type: types.ADD_CART_SUCCESS });
-    })
-    .catch(() => {
-      dispatch({ type: types.ADD_CART_ERROR });
+export const addToCart = (id, token) => async(dispatch) => {
+  try {
+    dispatch({ type: types.ADD_CART_LOADING });
+    const res = await fetch(`${BASE_URL}/cart/add/${id}`, {
+      method:"POST",
+        headers: {
+            Authorization: token,
+            "Content-Type": "application/json",
+        },
     });
-  
+    const data = await res.json();
+
+    dispatch({ type: types.ADD_CART_SUCCESS, payload: data.cart });
+}catch(e){
+      dispatch({ type: types.ADD_CART_ERROR });
+
 };
+}
