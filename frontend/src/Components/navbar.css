@@ -53,7 +53,6 @@
 }
 
 .nav1-right > div {
-  /* border: 1px solid grey; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,10 +60,6 @@
   border-right: 0.5px;
   height: 45px;
 }
-
-/* .nav1-right>div:nth-child(4) {
-    border-right: 1px solid grey;
-} */
 
 .nav1-right > div > p {
   font-weight: normal;
@@ -84,11 +79,10 @@
 }
 
 .nav-men-main-con {
-  /* border: 1px solid red; */
   display: grid;
   grid-template-columns: repeat(2, 70% 30%);
   position: absolute;
-  top: 105px;
+  top: 90px;
   left: 0px;
   padding-top: 20px;
   background-color: white;
@@ -100,9 +94,9 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 59px;
-  width: 416px;
-  right: 8.5%;
+  top: 50px;
+  width: 160px;
+  right: 8.4%;
   background-color: white;
   z-index: 2;
 }
@@ -133,15 +127,21 @@
   font-weight: bolder;
 }
 
+#notHeading:hover{
+color: blue;
+font-weight: bold;
+}
+
 #MenSubmenu > p {
-  font-size: 12px;
+  font-size: 13px;
   text-align: left;
 }
 
 .nav-men-slider-con {
   border-left: 1px solid rgb(194, 192, 192);
-  height: 300px;
+  height: 400px;
   margin-top: 15px;
+  
 }
 
 .slider-men-nav {

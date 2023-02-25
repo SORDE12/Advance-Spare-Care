@@ -24,7 +24,7 @@ export default function Navbar2() {
           onMouseLeave={() => setDropdownNewarrival(false)}
         >
           {" "}
-          <Link>Air Filter</Link>
+          <Link style={{fontWeight:"bold"}}>Air Filter</Link>
           {DropdownNewarrival && <PartsDropdown />}
         </div>
         <div
@@ -32,7 +32,7 @@ export default function Navbar2() {
           onMouseLeave={() => setDropdownMen(false)}
         >
           {" "}
-          <Link>Air tank Filter</Link>
+          <Link style={{fontWeight:"bold"}}>Air tank Filter</Link>
           {DropdownMen && <PartsDropdown />}
         </div>
         <div
@@ -40,7 +40,7 @@ export default function Navbar2() {
           onMouseLeave={() => setDropdownWomen(false)}
         >
           {" "}
-          <Link>Cabin Air Filter</Link>
+          <Link style={{fontWeight:"bold"}}>Cabin Air Filter</Link>
           {DropdownWomen && <PartsDropdown />}
         </div>
         <div
@@ -48,7 +48,7 @@ export default function Navbar2() {
           onMouseLeave={() => setDropdownBoys(false)}
         >
           {" "}
-          <Link>Oil and fluids</Link>
+          <Link style={{fontWeight:"bold"}}>Oil and fluids</Link>
           {DropdownBoys && <PartsDropdown />}
         </div>
         <div
@@ -56,7 +56,7 @@ export default function Navbar2() {
           onMouseLeave={() => setDropdownGirls(false)}
         >
           {" "}
-          <Link>Replacement Parts</Link>
+          <Link style={{fontWeight:"bold"}}>Replacement Parts</Link>
           {DropdownGirls && <PartsDropdown />}
         </div>
         <div
@@ -64,7 +64,7 @@ export default function Navbar2() {
           onMouseLeave={() => setDropdownClothing(false)}
         >
           {" "}
-          <Link>Performance Part</Link>
+          <Link style={{fontWeight:"bold"}}>Performance Part</Link>
           {DropdownClothing && <PartsDropdown />}
         </div>
         <div
@@ -72,7 +72,7 @@ export default function Navbar2() {
           onMouseLeave={() => setDropdownAccessories(false)}
         >
           {" "}
-          <Link>Accessories</Link>
+          <Link style={{fontWeight:"bold"}}>Accessories</Link>
           {DropdownAccessories && <PartsDropdown />}
         </div>
         <div
@@ -80,7 +80,7 @@ export default function Navbar2() {
           onMouseLeave={() => setDropdownSales(false)}
         >
           {" "}
-          <Link>Speed perks</Link>
+          <Link style={{fontWeight:"bold"}}>Speed perks</Link>
           {DropdownSale && <PartsDropdown />}
         </div>
         <div
@@ -88,7 +88,7 @@ export default function Navbar2() {
           onMouseLeave={() => setDropdownBrands(false)}
         >
           {" "}
-          <Link>BRANDS</Link>
+          <Link style={{fontWeight:"bold"}}>BRANDS</Link>
           {DropdownBrands && <PartsDropdown />}
         </div>
         <div
@@ -96,7 +96,7 @@ export default function Navbar2() {
           onMouseLeave={() => setDropdownRelease(false)}
         >
           {" "}
-          <Link>RELEASES</Link>
+          <Link style={{fontWeight:"bold"}}>RELEASES</Link>
           {DropdownRelease && <PartsDropdown />}
         </div>
       </div>
