@@ -2,6 +2,7 @@ import {
   AUTH_LOGIN_FAILURE,
   AUTH_LOGIN_REQUEST,
   AUTH_LOGIN_SUCCESS,
+  AUTH_LOGOUT,
   AUTH_REGISTER_FAILURE,
   AUTH_REGISTER_REQUEST,
   AUTH_REGISTER_SUCCESS,
@@ -73,4 +74,8 @@ export const authLogin = (data) => async (dispatch) => {
       },
     });
   }
+};
+
+export const logout = (dispatch) => {
+  dispatch({type:AUTH_LOGOUT})
 };
