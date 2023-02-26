@@ -18,7 +18,6 @@ import { Link } from "react-router-dom";
 let dollarIndianLocale = Intl.NumberFormat("en-IN");
 
 
-
 const Cart = () => {
   const {products,loading,error} = useSelector((store) => store.cartManager);
   const dispatch = useDispatch();
@@ -29,6 +28,7 @@ const Cart = () => {
     dispatch(getCartProducts(token));
     setCount(products)
   }, [token,count]);
+
   //console.log(products,"count",count);
 
   
@@ -49,15 +49,7 @@ const Cart = () => {
       </Box>
     );
   }
-  // return <div>
-  //   {products && products.map((el)=>(
-  //     <div key={el._id}>
-  //       <h1>{el.price}</h1>
-  //       <button>Update</button>
-  //       <button onClick={()=>{dispatch(deleteItemFromCart(el._id,token));setCount(products)}}>Delete</button>
-  //     </div>
-  //   ))}
-  // </div>;
+
 
   return (
     <div className={styles.main__container}>
@@ -180,3 +172,5 @@ const Cart = () => {
 };
 
 export default Cart;
+
+

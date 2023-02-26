@@ -7,7 +7,7 @@ export const getProducts =
   (params) =>
  
   (dispatch) => {
-    console.log("10",params)
+    // console.log("10",params)
     let carArr=params.params;
     let category=carArr[0]
     let category1=carArr[1];
@@ -50,7 +50,7 @@ export const getProducts =
           .get(`${BASE_URL}/products`,params)
           .then((res) => {
             dispatch({ type: types.GET_PRODUCT_SUCCESS, payload: res.data });
-            console.log(params)
+            // console.log(params)
           })
           .catch(() => {
             dispatch({ type: types.GET_PRODUCT_ERROR });

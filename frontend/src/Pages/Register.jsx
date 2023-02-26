@@ -1,8 +1,92 @@
 import "./register.css";
 import loginimg from "../Assets/login_img.webp";
 import React from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useToast } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { authRegister } from "../Redux/Authentication/auth.action";
 
 export default function Register() {
+  const [first_name, setFirst_Name] = useState("");
+  const [last_name, setLast_Name] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
+  const toast = useToast();
+  const navigate = useNavigate();
+  const authState = useSelector((state) => state.auth);
+  // console.log("authState: ", authState);
+  const dispatch = useDispatch();
+
+  const handleRegister = () => {
+    let obj = {
+      first_name,
+      last_name,
+      email,
+      mobile,
+      password,
+      address,
+    };
+    if (
+      obj.first_name === "" ||
+      obj.last_name === "" ||
+      obj.password === "" ||
+      obj.email === "" ||
+      obj.address === "" ||
+      obj.mobile === ""
+    ) {
+      toast({
+        title: "Please fill add details",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+        position: "top",
+      });
+    } else {
+      // console.log(obj);
+
+      dispatch(authRegister(obj));
+
+      if (
+        authState.userRegister.message === "User already exist, Please login"
+      ) {
+        toast({
+          title: authState.userRegister.message,
+          status: "error",
+          duration: 2000,
+          isClosable: true,
+          position: "top",
+        });
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+      }
+      if (authState.userRegister.message === "Something Went Wrong") {
+        toast({
+          title: "Wrong Details",
+          status: "warning",
+          duration: 2000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+      if (authState.userRegister.message === "User Registration Suceessful") {
+        toast({
+          title: authState.userRegister.message,
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+          position: "top",
+        });
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+      }
+    }
+  };
+
   return (
     <>
       <div className="main_container">
@@ -15,6 +99,8 @@ export default function Register() {
             style={{ padding: "10px" }}
             type="text"
             placeholder="First Name"
+            value={first_name}
+            onChange={(e) => setFirst_Name(e.target.value)}
           />
 
           <p className="input-heading">Last Name</p>
@@ -23,6 +109,8 @@ export default function Register() {
             style={{ padding: "10px" }}
             type="text"
             placeholder="Last Name"
+            value={last_name}
+            onChange={(e) => setLast_Name(e.target.value)}
           />
 
           <p className="input-heading">Mobile Number</p>
@@ -32,6 +120,9 @@ export default function Register() {
             placeholder="Mobile Number"
             class="textbox-n"
             type="number"
+            required
+            value={mobile}
+            onChange={(e) => setMobile(Number(e.target.value))}
           />
 
           <p className="input-heading">Email</p>
@@ -40,6 +131,8 @@ export default function Register() {
             style={{ padding: "10px" }}
             type="email"
             placeholder="Enter Your Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <p className="input-heading">Password</p>
@@ -48,6 +141,8 @@ export default function Register() {
             style={{ padding: "10px" }}
             type="password"
             placeholder="Enter Your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           <p className="input-heading">Address</p>
@@ -56,6 +151,8 @@ export default function Register() {
             style={{ padding: "10px" }}
             type="text"
             placeholder="Permanent Address"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
           />
           <br />
           <button
@@ -69,6 +166,7 @@ export default function Register() {
               fontSize: "17px",
               cursor: "pointer",
             }}
+            onClick={handleRegister}
           >
             CREATE ACCOUNT
           </button>
@@ -98,7 +196,6 @@ export default function Register() {
               fontSize: "15px",
               textAlign: "left",
               color: "#373737",
-              textAlign: "justify",
             }}
           >
             ** By choosing to receive text messages, the customer agrees to
@@ -135,7 +232,7 @@ export default function Register() {
         </div>
 
         <div className="loginImg">
-          <img className="loginImg-img" src={loginimg} />
+          <img className="loginImg-img" src={loginimg} alt="" />
         </div>
       </div>
     </>

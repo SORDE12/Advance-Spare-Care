@@ -14,7 +14,8 @@ import { useState } from "react";
 import Navbar2 from "./Navbar2";
 
 const Navbar = () => {
-const [DropdownAccount, setDropdownAccount] = useState(false);
+  const [DropdownAccount, setDropdownAccount] = useState(false);
+
 
   const navigate = useNavigate();
   const bagfunc = () => {
@@ -31,7 +32,7 @@ const [DropdownAccount, setDropdownAccount] = useState(false);
           </div>
           <div className="add-a-vehicle">
             <div>
-              <img src={car} />
+              <img src={car} alt=""/>
               <p>Add a Vehicle</p>
               <ChevronDownIcon boxSize={25} />
             </div>
@@ -66,7 +67,7 @@ const [DropdownAccount, setDropdownAccount] = useState(false);
               {DropdownAccount && <AccountDropdown />}
               <p>Account</p>
             </div>
-            <div className="store-in-navbar">
+            <div className="store-in-navbar" onClick={bagfunc} style={{hover:"cursor"}}>
               <BsBag size={25} color={"white"} />
               <p>Bag</p>
             </div>

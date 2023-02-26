@@ -50,7 +50,7 @@ const Products = () => {
     dispatch,
     category,
     setSearchParams,
-    location.search,
+    location,
     sort,
     order,
   ]);
@@ -95,7 +95,7 @@ const Products = () => {
           <p style={{ textAlign: "left" }}>{details}</p>
         </div>
         <div className={styles.detailsDiv2}>
-          <img
+          <img alt=""
             style={{ height: "100%" }}
             src="https://shop.advanceautoparts.com/wcsstore/CVWEB/Attachment/staticbusinesscontent/image/2023/01/Category-L3s_Legacy_450X112_1.jpg"
           />

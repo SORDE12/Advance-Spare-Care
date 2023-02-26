@@ -3,12 +3,13 @@ import {
     applyMiddleware,
     compose,
     combineReducers,
+
   } from "redux";
   
   import thunk from "redux-thunk";
 import authReducer from "./Authentication/auth.reducer";
-import { cartReducer } from "./Cart/cart.reducer";
-  
+import Admin_Products_reducer from "./Admin_Products/admin.product.reducer";
+import adminAuthReducer from "./AdminAuthentication/adminauth.reducer";  
 //   import { cartReducer } from "./cart/reducer";
 import  {productReducer} from "./Products/product.reducer";
   
@@ -16,8 +17,10 @@ import  {productReducer} from "./Products/product.reducer";
   
   const rootReducer = combineReducers({
     auth: authReducer,
-    productManager: productReducer,
-    cartManager: cartReducer,
+    Admin_Products_reducer: Admin_Products_reducer,
+    adminAuthReducer:adminAuthReducer,
+    // products: productsReducer,
+    // carts: cartReducer,
     // admin: adminReducer
   });
   
