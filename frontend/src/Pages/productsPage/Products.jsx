@@ -14,21 +14,21 @@ const Products = () => {
   const [sort, setSort] = useState("");
   const [order, setOrder] = useState("");
 
+  const { loading, error, products } = useSelector(
+    (store) => store.productManager
+  );
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.getAll("category");
   const [category, setCategory] = useState(initialCategory || []);
   //const { target } = useParams();
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
-  const limit = 10;
-  let totalPages = 4;
+  const limit = 12;
 
-  const { loading, error, products } = useSelector(
-    (store) => store.productManager
-  );
   const location = useLocation();
-
-  //console.log(location)
+  let totalPages = Math.floor(products.length / 10);
+let skip=page;
+  console.log(products)
 
   useEffect(() => {
     let params = {};
@@ -38,6 +38,8 @@ const Products = () => {
           category,
           sort,
           order,
+          skip,
+          limit
         },
       };
       dispatch(getProducts(getProductsParams));
@@ -46,13 +48,9 @@ const Products = () => {
     params.category = category;
     setSearchParams(params);
   }, [
-    products.length,
-    dispatch,
-    category,
-    setSearchParams,
-    location,
-    sort,
-    order,
+   skip,
+   setSearchParams,
+   category
   ]);
 
   let parts;
@@ -78,6 +76,7 @@ const Products = () => {
   };
   function handleClick(val) {
     setPage(val);
+    console.log(val);
   }
 
   return (
@@ -95,7 +94,8 @@ const Products = () => {
           <p style={{ textAlign: "left" }}>{details}</p>
         </div>
         <div className={styles.detailsDiv2}>
-          <img alt=""
+          <img
+            alt=""
             style={{ height: "100%" }}
             src="https://shop.advanceautoparts.com/wcsstore/CVWEB/Attachment/staticbusinesscontent/image/2023/01/Category-L3s_Legacy_450X112_1.jpg"
           />
@@ -357,27 +357,27 @@ const Products = () => {
             </div>
           </div>
         </div>
-        <div style={{display:"flex" , flexDirection:"colu"}}>
+        <div style={{ display: "flex", flexDirection: "colu" }}>
           <div className={styles.productsMainSec}>
             <div className={styles.productMain}>
               {products.length > 0 &&
                 products.map((e) => <ProductDiv key={e.id} data={e} />)}
             </div>
           </div>
-          <div
-            style={{
-              margin: "auto",
-              gap: "2rem",
-              padding: "2rem",
-            }}
-          >
-            <Pagination
-              page={page}
-              totalPages={totalPages}
-              handleClick={handleClick}
-            />
-          </div>
         </div>
+      </div>
+      <div
+        style={{
+          margin: "auto",
+          gap: "2rem",
+          padding: "2rem",
+        }}
+      >
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          handleClick={handleClick}
+        />
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import Loader from "./Loader";
 
 export const ProductListing = () => {
 
-    const [data,setData] = useState([]);
+    // const [data,setData] = useState([]);
 
     const [ProductCategory, setProductCategory] = useState("");
     const [ProductCategory2, setProductCategory2] = useState("");
