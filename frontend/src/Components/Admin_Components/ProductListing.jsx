@@ -1,26 +1,39 @@
 import { SimpleGrid } from "@chakra-ui/react";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { ProductCard } from "./ProductItem";
 import { Box, Input, Text, Heading, Select, } from "@chakra-ui/react";
-
-
-
+import { useSelector, useDispatch } from "react-redux";
+import { getData } from "../../Redux/Admin_Products/admin.product.action";
+import Loader from "./Loader";
 
 export const ProductListing = () => {
+
     const [data,setData] = useState([]);
+
     const [ProductCategory, setProductCategory] = useState("");
+    const [ProductCategory2, setProductCategory2] = useState("");
 
-
+    const { data, isloader,iserror } = useSelector((state) => state.Admin_Products_reducer);
+    const dispatch = useDispatch();
+console.log("dataarray",data)
     const handleCategories=(event)=>{
         const val = event.target.value;
-   console.log("category",val)
+   console.log("category",val);
+   setProductCategory(val);
 
     }
-useEffect(()=>{
-axios.get(`https://shy-ruby-piglet.cyclic.app/products`).then((res)=> setData(res.data))
-},[])
+useEffect(() => {
+  dispatch(getData(ProductCategory, ProductCategory2));
+}, [ProductCategory, ProductCategory2]);
  
+if(isloader){
+  console.log("loader true")
+  return <Loader />
+}
+if(iserror){
+  return "ERROR-----"
+}
+
   return (
     <>
       <Box
@@ -52,17 +65,19 @@ axios.get(`https://shy-ruby-piglet.cyclic.app/products`).then((res)=> setData(re
               value={ProductCategory}
               onChange={handleCategories}
             >
-              <option style={{ backgroundColor: "#0c0e1f" }}>Categories</option>
-              <option style={{ backgroundColor: "#0c0e1f" }} value="airfilters">
+              <option style={{ backgroundColor: "#0c0e1f" }} value="">
+                Categories
+              </option>
+              <option style={{ backgroundColor: "#0c0e1f" }} value="air filter">
                 Air Filters
               </option>
               <option
                 style={{ backgroundColor: "#0c0e1f" }}
-                value="turbocharger"
+                value="turbo charger"
               >
                 Turbo Chargers
               </option>
-              <option style={{ backgroundColor: "#0c0e1f" }} value="motoroil">
+              <option style={{ backgroundColor: "#0c0e1f" }} value="motor oil">
                 Motor Oil
               </option>
             </Select>
@@ -81,7 +96,9 @@ axios.get(`https://shy-ruby-piglet.cyclic.app/products`).then((res)=> setData(re
           >
             {data.length &&
               data.map((product) => (
-                <ProductCard  key={product._id} product={product} />
+
+                <ProductCard key={product._id} product={product} />
+
               ))}
           </SimpleGrid>
         </Box>

@@ -33,6 +33,7 @@ import {
 const linkItems = [
   { name: "Dashboard", icon: FiHome, path: "/admin" },
   { name: "Listing", icon: FiTrendingUp, path: "/admin/listing" },
+  { name: "Add Products", icon: FiStar, path: "/admin/addproducts" },
   { name: "Orders", icon: FiCompass, path: "/admin/orders" },
   { name: "Customers", icon: FiStar, path: "/admin/customers" },
 ];
