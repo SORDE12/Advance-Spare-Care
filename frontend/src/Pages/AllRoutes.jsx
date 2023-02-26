@@ -31,7 +31,6 @@ const AllRoutes = () => {
         }
       />
       <Route path="/products" element={<Products />} />
-
       {/* user page */}
       <Route path="/user" element={<Userpage />} />
       {/* admin page */}
