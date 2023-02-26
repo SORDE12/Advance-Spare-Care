@@ -11,6 +11,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import style from "./ProductItem.module.css";
 
 
 export const ProductCard = ({product}) => {
@@ -53,8 +54,10 @@ export const ProductCard = ({product}) => {
           <Text
             fontWeight="medium"
             color={useColorModeValue("gray.700", "gray.400")}
+            
+            className={style.text}
           >
-            📝{" "}{desc}
+            📝 {desc}
           </Text>
         </Stack>
         <HStack justifyContent={"space-around"}>
