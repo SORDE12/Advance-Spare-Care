@@ -9,7 +9,7 @@ let dollarIndianLocale = Intl.NumberFormat("en-IN");
 
 
 const ProductDiv = ({ data }) => {
-  console.log({data})
+  // console.log({data})
   const { image, desc, price, strike_price, ratings ,_id, category, brand, reviews} = data;
   const dispatch = useDispatch();
   const toast=useToast()
