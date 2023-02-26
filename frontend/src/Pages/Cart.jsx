@@ -29,6 +29,7 @@ const Cart = () => {
     setCount(products)
   }, [token,count]);
 
+
   //console.log(products,"count",count);
 
   
@@ -49,6 +50,23 @@ const Cart = () => {
       </Box>
     );
   }
+  let res = products.map((el) => {
+    return el.quantity * el.price;
+  });
+  res = res.reduce(function (sum, el) {
+    return sum + el;
+  }, 0);
+  // total original price calculation
+  let MRP = products.map((el) => {
+    return (
+      el.quantity * +el.strike_price
+    );
+  });
+  MRP = MRP.reduce(function (sum, el) {
+    return sum + el;
+  }, 0);
+  // saving amount
+  let saving = MRP - res;
 
 
   return (
@@ -129,7 +147,7 @@ const Cart = () => {
               </div>
               <div>
                 <p>Total MRP (Incl. of taxes) </p>
-                <p>₹{dollarIndianLocale.format(0)}/-</p>
+                <p>₹{dollarIndianLocale.format(MRP)}/-</p>
               </div>
               <div>
                 <p>Shipping Charges </p>
@@ -137,16 +155,16 @@ const Cart = () => {
               </div>
               <div>
                 <p>Bag Discount </p>
-                <p>- ₹{dollarIndianLocale.format(0)}/-</p>
+                <p>{saving}</p>
               </div>
               <div>
                 <p>Subtotal </p>
-                <p>₹{dollarIndianLocale.format(0)}/-</p>
+                <p>{res}</p>
               </div>
               <div>
                 <div>
                   <p>
-                    You are saving ₹ {dollarIndianLocale.format(0)}/- on
+                    You are saving ₹ {saving}/- on
                     this order
                   </p>
                 </div>
@@ -157,7 +175,7 @@ const Cart = () => {
                 <span>
                   <p>Total</p>
                   <p>
-                    <b>₹{dollarIndianLocale.format(0)}/-</b>
+                    <b>₹{res}/-</b>
                   </p>
                 </span>
                 <Link to="/checkoutaddress"><button >Place Order</button></Link>
