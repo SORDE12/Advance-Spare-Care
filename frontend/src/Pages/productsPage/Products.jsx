@@ -65,6 +65,7 @@ let skip=page;
     "Oil changes at prescribed intervals are still the best way to get the most miles out of any engine. Conventional oil can go 3K-5K miles between changes, with a somewhat longer interval for synthetic blend. Full synthetic can go for longer intervals, so be sure to check your owner’s manual recommendations. Whether you're opting for full synthetic (required by new-car warranties), synthetic high-mileage, conventional, high-mileage, or synthetic blend, you've come to the right place. We've got motor oil from top brands like FRAM, Mobil 1, Castrol, Valvoline, Pennzoil, Royal Purple, and much more, right here at Advance.";
   target === "Filter" ? (parts = "Filter") : (parts = "Oil & Fluids");
   target === "Filter" ? (details = a) : (details = b);
+
   const handleFilterCheckbox = (e) => {
     const newCategories = [...category];
     if (newCategories.includes(e.target.value)) {
@@ -91,7 +92,7 @@ let skip=page;
       </div>
       <div className={styles.details}>
         <div className={styles.detailsDiv1}>
-          <p style={{ textAlign: "left" }}>{details}</p>
+          <p style={{ textAlign: "justify"}}>{details}</p>
         </div>
         <div className={styles.detailsDiv2}>
           <img

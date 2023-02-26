@@ -30,6 +30,7 @@
   styles.detailsDiv1{
     width: 70%;
     text-align: left;
+    
    
   }
   styles.detailsDiv2{
@@ -71,7 +72,8 @@
   
     text-align: left;
     margin: auto;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
     margin-top: 5px;
     padding: 10px;
   }
@@ -84,7 +86,6 @@
     grid-template-rows: repeat(4, auto);
     grid-template-columns: repeat(3, 300px);
     gap: 5rem;
-    border: 1px solid blue;
     text-align: center;
     margin: auto;
   }
