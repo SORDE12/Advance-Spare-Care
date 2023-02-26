@@ -5,25 +5,47 @@ import {
   Flex,
   HStack,
   Image,
-  Link,
   Skeleton,
   Stack,
   Text,
+  Toast,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import style from "./ProductItem.module.css";
+import UpdateModal from "./Update_Modal";
+import { useSelector, useDispatch } from "react-redux";
+import { removeData } from "../../Redux/Admin_Products/admin.product.action";
 
 
 export const ProductCard = ({product}) => {
- 
-    console.log(product);
-  const {
-    image,
-    price,
-    category,
-    desc,
-    ratings,
-  } = product;
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const dispatch = useDispatch();
+  const handleUpdate = () => {
+    console.log("Update");
+    onOpen();
+  };
+
+  const handleRemove = (id) => {
+    console.log("Delete id", id);
+    dispatch(removeData(id));
+
+    onClose();
+    // console.log("data", data);
+
+    Toast({
+      title: "Product Deleted",
+      description: "We've successfully deleted the product from your database.",
+      status: "success",
+      duration: 1500,
+      isClosable: true,
+    });
+  };
+
+
+  const { image, price, category, desc, ratings, _id } = product;
   return (
     <Stack
       bg={"#efe8e8"}
@@ -54,7 +76,6 @@ export const ProductCard = ({product}) => {
           <Text
             fontWeight="medium"
             color={useColorModeValue("gray.700", "gray.400")}
-            
             className={style.text}
           >
             📝 {desc}
@@ -74,8 +95,21 @@ export const ProductCard = ({product}) => {
       </Stack>
       <Stack>
         <Flex justifyContent={"space-between"}>
-          <Button colorScheme="blue">UPDATE</Button>
-          <Button bg="#f24646">REMOVE</Button>
+          <Button colorScheme="blue" onClick={handleUpdate}>
+            UPDATE
+          </Button>
+
+          <Box display={"none"}>
+            <UpdateModal
+              product={product}
+              isOpen={isOpen}
+              onClose={onClose}
+              onOpen={onOpen}
+            />
+          </Box>
+          <Button bg="#f24646" onClick={() => handleRemove(_id)}>
+            REMOVE
+          </Button>
         </Flex>
         <Button bg="#38bc5e" width="full" color={"black"}>
           Active

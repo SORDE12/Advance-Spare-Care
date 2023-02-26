@@ -1,10 +1,11 @@
-import { SimpleGrid } from "@chakra-ui/react";
+import { IconButton, SimpleGrid } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { ProductCard } from "./ProductItem";
 import { Box, Input, Text, Heading, Select, } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
-import { getData } from "../../Redux/Admin_Products/admin.product.action";
+import { getData} from "../../Redux/Admin_Products/admin.product.action";
 import Loader from "./Loader";
+import { FcSeBiSearchAlt2arch } from "react-icons/fa";
 
 
 
@@ -14,21 +15,37 @@ import Loader from "./Loader";
 export const ProductListing = () => {
     
     const [ProductCategory, setProductCategory] = useState("");
-    const [ProductCategory2, setProductCategory2] = useState("");
+   
+    const [searchValue,setsearchValue] = useState('');
+
 
     const { data, isloader,iserror } = useSelector((state) => state.Admin_Products_reducer);
     const dispatch = useDispatch();
-console.log("dataarray",data)
+// console.log("dataarray",data)
     const handleCategories=(event)=>{
         const val = event.target.value;
    console.log("category",val);
    setProductCategory(val);
-
     }
 useEffect(() => {
-  dispatch(getData(ProductCategory, ProductCategory2));
-}, [ProductCategory, ProductCategory2]);
+  dispatch(getData(ProductCategory, searchValue));
+}, [ProductCategory]);
  
+const handleKeyPress = (e) => {
+  if (e.key === "Enter") {
+    console.log("Search Value", searchValue);
+    dispatch(getData(ProductCategory, searchValue));
+    setsearchValue('');
+  }
+};
+
+
+const handleInputChange =(e)=>{
+setsearchValue(e.target.value);
+}
+
+
+
 if(isloader){
   console.log("loader true")
   return <Loader />
@@ -58,7 +75,11 @@ if(iserror){
               type={"text"}
               placeholder="Search Listings.."
               w={{ base: "40%", md: "35%", lg: "25%" }}
+              value={searchValue}
+              onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
             ></Input>
+            
             {/* select option */}
             <Select
               // variant="flushed"

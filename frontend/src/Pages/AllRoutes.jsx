@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AddProducts from "../Components/Admin_Components/AddProducts";
 import AdminLogin from "../Components/Admin_Components/AdminLogin";
-import Customers from "../Components/Admin_Components/Customers";
 import Dashboard from "../Components/Admin_Components/Dashboard";
 import Orders from "../Components/Admin_Components/Orders";
 import ProductListing from "../Components/Admin_Components/ProductListing";
@@ -14,6 +13,7 @@ import Userpage from "./Userpage";
 import Loading from "./Loading";
 import CheckoutAddress from "./CheckoutAddress";
 import CheckoutPayment from "./CheckoutPayment";
+import PatnersPage from "../Components/Admin_Components/PatnersPage";
 
 const AllRoutes = () => {
   return (
@@ -29,7 +29,7 @@ const AllRoutes = () => {
       <Route path="/admin" element={<Dashboard />} />
       <Route path="/admin/listing" element={<ProductListing />} />
       <Route path="/admin/orders" element={<Orders />} />
-      <Route path="/admin/customers" element={<Customers />} />
+      <Route path="/admin/patners" element={<PatnersPage />} />
       <Route path="/admin/addproducts" element={<AddProducts />} />
       <Route path="/user" element={<Userpage />} />
       <Route path="/checkoutaddress" element={<CheckoutAddress />} />
