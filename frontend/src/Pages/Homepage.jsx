@@ -13,6 +13,7 @@ import recyle from "../Assets/recyle.png";
 
 
 const Homepage = () => {
+
   return (
     <>
       {/* 1st container */}
@@ -27,7 +28,7 @@ const Homepage = () => {
           <button className="discount-button">Shop Now.</button>
         </div>
         <div className="img-div-of-discount-banner">
-          <img src={discountimg} />
+          <img alt="" src={discountimg} />
         </div>
       </div>
       {/* 2nd container */}
@@ -44,7 +45,7 @@ const Homepage = () => {
           <GridItem className="griditems-of-small-banners">
             <div style={{ display: "flex", gap: "10px" }}>
               <div style={{ width: "9%" }}>
-                <img src={car} />
+                <img alt="" src={car} />
               </div>
               <div>
                 <p style={{ fontWeight: "bold", fontSize: "24px" }}>
@@ -63,7 +64,7 @@ const Homepage = () => {
           <GridItem className="griditems-of-small-banners">
             <div style={{ display: "flex", gap: "10px" }}>
               <div style={{ width: "9%" }}>
-                <img src={car} />
+                <img alt="" src={car} />
               </div>
               <div>
                 <p style={{ fontWeight: "bold", fontSize: "24px" }}>
@@ -82,7 +83,7 @@ const Homepage = () => {
           <GridItem className="griditems-of-small-banners">
             <div style={{ display: "flex", gap: "10px" }}>
               <div style={{ width: "9%" }}>
-                <img src={car} />
+                <img alt="" src={car} />
               </div>
               <div>
                 <p style={{ fontWeight: "bold", fontSize: "24px" }}>
@@ -102,7 +103,7 @@ const Homepage = () => {
       {/* 3rd container */}
       <div className="yellow-backgraud-div">
         <div className="car-div-in-yellow-bac-div">
-          <img src={car} />
+          <img alt="" src={car} />
         </div>
 
         <div className="car-dics">
@@ -151,7 +152,7 @@ const Homepage = () => {
           <GridItem>
             <div className="six-box-divs">
               <div className="six-box-img-">
-                <img src={store} />
+                <img alt="" src={store} />
               </div>
               <p className="first-p-tag"> Free In Store Services</p>
               <p style={{ fontSize: "15px" }}>
@@ -164,7 +165,7 @@ const Homepage = () => {
           <GridItem>
             <div className="six-box-divs">
               <div className="six-box-img-">
-                <img src={store} />
+                <img alt="" src={store} />
               </div>
               <p className="first-p-tag">Advance Same Day</p>
               <p style={{ fontSize: "15px" }}>
@@ -177,7 +178,7 @@ const Homepage = () => {
           <GridItem>
             <div className="six-box-divs">
               <div className="six-box-img-">
-                <img src={store} />
+                <img alt="" src={store} />
               </div>
               <p className="first-p-tag">Speed Perks</p>
               <p style={{ fontSize: "15px" }}>
@@ -189,7 +190,7 @@ const Homepage = () => {
           <GridItem>
             <div className="six-box-divs">
               <div className="six-box-img-">
-                <img src={store} />
+                <img alt="" src={store} />
               </div>
               <p className="first-p-tag">Hiring Now: In Store & Corporate</p>
               <p style={{ fontSize: "15px" }}>
@@ -201,7 +202,7 @@ const Homepage = () => {
           <GridItem>
             <div className="six-box-divs">
               <div className="six-box-img-">
-                <img src={store} />
+                <img alt="" src={store} />
               </div>
               <p className="first-p-tag">Rebates and Sweepstakes</p>
               <p style={{ fontSize: "15px" }}>
@@ -214,7 +215,7 @@ const Homepage = () => {
           <GridItem>
             <div className="six-box-divs">
               <div className="six-box-img-">
-                <img src={store} />
+                <img alt="" src={store} />
               </div>
               <p className="first-p-tag">Need a Certified Technician?</p>
               <p style={{ fontSize: "15px" }}>
@@ -257,7 +258,7 @@ const Homepage = () => {
           >
             <GridItem>
               <div className="under-the-hood-saving">
-                <img src={img1} />
+                <img alt="" src={img1} />
                 <div>
                   <p style={{ fontSize: "20px", fontWeight: "bold" }}>
                     FRAM Oil Change Bundles
@@ -272,7 +273,7 @@ const Homepage = () => {
 
             <GridItem>
               <div className="under-the-hood-saving">
-                <img src={img2} />
+                <img alt="" src={img2} />
                 <div>
                   <p style={{ fontSize: "20px", fontWeight: "bold" }}>
                     Hot Deal: 2 For $11
@@ -286,7 +287,7 @@ const Homepage = () => {
 
             <GridItem>
               <div className="under-the-hood-saving">
-                <img src={img3} />
+                <img alt="" src={img3} />
                 <div>
                   <p style={{ fontSize: "20px", fontWeight: "bold" }}>
                     {" "}
@@ -301,7 +302,7 @@ const Homepage = () => {
 
             <GridItem>
               <div className="under-the-hood-saving">
-                <img src={img4} />
+                <img alt="" src={img4} />
                 <div>
                   <p style={{ fontSize: "20px", fontWeight: "bold" }}>
                     ACDelco: $32 Gift Card
@@ -318,7 +319,7 @@ const Homepage = () => {
       </div>
       <br />
       <div className="longbanner">
-        <img src={longbanner} />
+        <img alt="" src={longbanner} />
       </div>
       <div className="after-banner-container-small-divs">
         <Grid
@@ -333,7 +334,7 @@ const Homepage = () => {
           <GridItem className="griditems-of-small-banners">
             <div style={{ display: "flex", gap: "10px" }}>
               <div style={{ width: "9%" }}>
-                <img src={car} />
+                <img alt="" src={car} />
               </div>
               <div>
                 <p style={{ fontWeight: "bold", fontSize: "24px" }}>
@@ -352,7 +353,7 @@ const Homepage = () => {
           <GridItem className="griditems-of-small-banners">
             <div style={{ display: "flex", gap: "10px" }}>
               <div style={{ width: "9%" }}>
-                <img src={car} />
+                <img alt="" src={car} />
               </div>
               <div>
                 <p style={{ fontWeight: "bold", fontSize: "24px" }}>
@@ -371,7 +372,7 @@ const Homepage = () => {
       </div>
       <div className="Advance-Oil-Battery-Recycling">
         <div>
-          <img style={{ width: "2em" }} src={recyle} />
+          <img style={{ width: "2em" }} src={recyle} alt="Advance Oil Battery Recycling"/>
           <p>Advance Oil Battery Recycling</p>
           <p className="Advance-Oil-Battery-Recycling-buttons">Find My Store</p>
         </div>

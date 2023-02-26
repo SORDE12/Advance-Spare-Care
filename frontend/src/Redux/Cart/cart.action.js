@@ -39,22 +39,27 @@ export const deleteItemFromCart = (id,token) => async(dispatch) => {
   }
 };
 
-export const editCartItem =
-  ({ id, qty, size }) =>
-  (dispatch) => {
+export const editCartItem  = (id,qty,token) => async(dispatch) => {
+console.log(id,qty,token)
+  try{
     dispatch({ type: types.EDIT_CART_LOADING });
-    return axios
-      .patch(`${BASE_URL}/carts/${id}`, {
-        qty: qty ? +qty : undefined,
-        size,
-      })
-      .then(() => {
-        dispatch({ type: types.EDIT_CART_SUCCESS });
-      })
-      .catch(() => {
-        dispatch({ type: types.EDIT_CART_ERROR });
-      });
-  };
+    let cartData=await fetch(`${BASE_URL}/cart/update/${id}`,{
+      method:"PATCH",
+      body:JSON.stringify({"quantity":+qty}),
+      headers:{
+        Authorization: token,
+        "Content-Type": "application/json",
+      }
+    })
+    await cartData.json();
+   console.log(cartData)
+        dispatch({ type: types.EDIT_CART_SUCCESS});
+    
+  }catch(e){
+    dispatch({ type: types.EDIT_CART_ERROR });
+  }
+};
+
 
 export const addToCart = (id, token) => async(dispatch) => {
   try {

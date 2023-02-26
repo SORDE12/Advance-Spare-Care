@@ -12,6 +12,7 @@ import Admin_Products_reducer from "./Admin_Products/admin.product.reducer";
 import adminAuthReducer from "./AdminAuthentication/adminauth.reducer";  
 //   import { cartReducer } from "./cart/reducer";
 import  {productReducer} from "./Products/product.reducer";
+import { cartReducer } from "./Cart/cart.reducer";
   
 //   import { adminReducer } from "./Admin/admin.reducer"
   
@@ -19,9 +20,8 @@ import  {productReducer} from "./Products/product.reducer";
     auth: authReducer,
     Admin_Products_reducer: Admin_Products_reducer,
     adminAuthReducer:adminAuthReducer,
-    // products: productsReducer,
-    // carts: cartReducer,
-    // admin: adminReducer
+    productManager: productReducer,
+    cartManager: cartReducer,
   });
   
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

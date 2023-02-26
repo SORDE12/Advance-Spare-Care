@@ -14,14 +14,22 @@ import Loading from "./Loading";
 import CheckoutAddress from "./CheckoutAddress";
 import CheckoutPayment from "./CheckoutPayment";
 import PatnersPage from "../Components/Admin_Components/PatnersPage";
+import Register from "./Register";
+import PrivateRoute from "./PrivateRoute";
+
 
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
       <Route path="/login" element={<Login />} />
+      <Route
+        path="/register"
+        element={
+            <Register />
+        }
+      />
       <Route path="/products" element={<Products />} />
-
       {/* user page */}
       <Route path="/user" element={<Userpage />} />
       {/* admin page */}
@@ -32,10 +40,10 @@ const AllRoutes = () => {
       <Route path="/admin/patners" element={<PatnersPage />} />
       <Route path="/admin/addproducts" element={<AddProducts />} />
       <Route path="/user" element={<Userpage />} />
-      <Route path="/checkoutaddress" element={<CheckoutAddress />} />
-      <Route path="/checkoutpayment" element={<CheckoutPayment />} />
-      <Route path="/loading" element={<Loading />} />
-      <Route path="/carts" element={<Cart />} />
+      <Route path="/checkoutaddress"  element={<PrivateRoute><CheckoutAddress  /></PrivateRoute>}/>
+      <Route path="/checkoutpayment" element={<PrivateRoute><CheckoutPayment /></PrivateRoute>}  />
+      <Route path="/loading" element={<Loading />}  />
+      <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
     </Routes>
   );
 };

@@ -22,7 +22,7 @@ ProductRouter.get("/", async (req, res) => {
     category1,
     _sort,
     skip=1,
-    limit=12,
+    limit,
     _order,
     maxRating,
     minRating,

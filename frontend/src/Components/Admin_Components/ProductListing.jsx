@@ -7,13 +7,10 @@ import { getData} from "../../Redux/Admin_Products/admin.product.action";
 import Loader from "./Loader";
 import { FcSeBiSearchAlt2arch } from "react-icons/fa";
 
-
-
-
-
-
 export const ProductListing = () => {
-    
+
+    // const [data,setData] = useState([]);
+
     const [ProductCategory, setProductCategory] = useState("");
    
     const [searchValue,setsearchValue] = useState('');
@@ -120,7 +117,9 @@ if(iserror){
           >
             {data.length &&
               data.map((product) => (
+
                 <ProductCard key={product._id} product={product} />
+
               ))}
           </SimpleGrid>
         </Box>

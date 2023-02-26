@@ -17,7 +17,7 @@ export const getProducts =
       dispatch({ type: types.GET_PRODUCT_LOADING });
   
       return axios
-        .get(`${BASE_URL}/products?category=${category}&category=${category1}`)
+        .get(`${BASE_URL}/products?category=${category}&skip=${params.params.skip}&limit=${params.params.limit}`)
         .then((res) => {
           dispatch({ type: types.GET_PRODUCT_SUCCESS, payload: res.data });
           
@@ -26,7 +26,7 @@ export const getProducts =
           dispatch({ type: types.GET_PRODUCT_ERROR });
         });
     }
-      else if(params.params.sort && params.params.order){
+      else if(params.params.sort!=="" && params.params.order!==""){
 
         console.log("sorting",params.params.sort,params.params.order)
 
@@ -50,7 +50,7 @@ export const getProducts =
           .get(`${BASE_URL}/products`,params)
           .then((res) => {
             dispatch({ type: types.GET_PRODUCT_SUCCESS, payload: res.data });
-            console.log(params)
+            // console.log(params)
           })
           .catch(() => {
             dispatch({ type: types.GET_PRODUCT_ERROR });

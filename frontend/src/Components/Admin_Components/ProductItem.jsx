@@ -19,6 +19,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeData } from "../../Redux/Admin_Products/admin.product.action";
 
 
+
 export const ProductCard = ({product}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -46,6 +47,8 @@ export const ProductCard = ({product}) => {
 
 
   const { image, price, category, desc, ratings, _id } = product;
+
+
   return (
     <Stack
       bg={"#efe8e8"}
@@ -57,6 +60,7 @@ export const ProductCard = ({product}) => {
         base: "4",
         md: "5",
       }}
+     key={key}
     >
       <Box position="relative">
         <AspectRatio ratio={5 / 3}>
