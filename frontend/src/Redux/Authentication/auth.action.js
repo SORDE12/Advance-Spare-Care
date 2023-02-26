@@ -17,19 +17,19 @@ export const authRegister = (data) => async (dispatch) => {
       "https://shy-ruby-piglet.cyclic.app/users/register",
       data
     );
-    // console.log('res: ', res);
+    console.log('res: ', res);
 
     dispatch({
       type: AUTH_REGISTER_SUCCESS,
       payload: {
-        message: res.data.message,
+        message: res.data.msg,
       },
     });
   } catch (error) {
     dispatch({
       type: AUTH_REGISTER_FAILURE,
       payload: {
-        message: error.response.data.message,
+        message: error.response.data.msg,
       },
     });
   }

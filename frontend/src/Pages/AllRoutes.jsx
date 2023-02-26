@@ -14,12 +14,22 @@ import Userpage from "./Userpage";
 import Loading from "./Loading";
 import CheckoutAddress from "./CheckoutAddress";
 import CheckoutPayment from "./CheckoutPayment";
+import Register from "./Register";
+import PrivateRoute from "./PrivateRoute";
 
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
       <Route path="/login" element={<Login />} />
+      <Route
+        path="/register"
+        element={
+          <PrivateRoute>
+            <Register />
+          </PrivateRoute>
+        }
+      />
       <Route path="/products" element={<Products />} />
 
       {/* user page */}
@@ -35,7 +45,7 @@ const AllRoutes = () => {
       <Route path="/checkoutaddress" element={<CheckoutAddress />} />
       <Route path="/checkoutpayment" element={<CheckoutPayment />} />
       <Route path="/loading" element={<Loading />} />
-      <Route path="/carts" element={<Cart />} />
+      <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
     </Routes>
   );
 };

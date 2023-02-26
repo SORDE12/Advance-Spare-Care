@@ -30,7 +30,7 @@ import {
  import { Link } from "react-router-dom";
 
 
-const LinkItems = [
+const linkItems = [
   { name: "Dashboard", icon: FiHome, path: "/admin" },
   { name: "Listing", icon: FiTrendingUp, path: "/admin/listing" },
   { name: "Add Products", icon: FiStar, path: "/admin/addproducts" },
@@ -91,7 +91,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
-      {LinkItems.map((link) => (
+      {linkItems.map((link) => (
         <NavItem key={link.name} icon={link.icon} path={link.path}>
           {link.name}
         </NavItem>

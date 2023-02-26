@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-import { parts, NavNewArrival } from "./NavbarData";
+import { Link } from "react-router-dom";
+import { parts } from "./NavbarData";
 import { NavMenSlider } from "./NavSlider";
 import "./navbar.css";
+import { useSelector } from "react-redux";
 
 export const PartsDropdown = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -15,8 +16,8 @@ export const PartsDropdown = () => {
         className={dropdown ? "Men-Submenu-Open" : "Men-Submenu-Close"}
         onClick={() => setDropdown(!dropdown)}
       >
-        {parts.map((ele) => (
-          <p id={ele.id === 1 ? "Item-Heading" : "notHeading"} key={ele.id}>
+        {parts.map((ele, index) => (
+          <p id={ele.id === 1 ? "Item-Heading" : "notHeading"} key={index + 1}>
             {ele.title}
           </p>
         ))}
@@ -30,6 +31,8 @@ export const PartsDropdown = () => {
 
 export const AccountDropdown = () => {
   const [dropdown, setDropdown] = useState(false);
+  const authState = useSelector((state) => state.auth);
+
   return (
     <div
       style={{ color: "black" }}
@@ -37,11 +40,19 @@ export const AccountDropdown = () => {
       className={dropdown ? "Account-Submenu-Open" : "Account-Submenu-Close"}
       onClick={() => setDropdown(!dropdown)}
     >
-      <Link to="/user" style={{fontWeight:"bold"}}>Account</Link>
+      <Link to="/user" style={{ fontWeight: "bold" }}>
+        Account
+      </Link>
+      {authState.data.isAuthenticated ? (
+        <Link>Logout</Link>
+      ) : (
+        <Link to="/login">Login</Link>
+      )}
 
-      <Link to="/login">Login</Link>
       <Link to="/register">Register</Link>
-      <Link style={{fontWeight:"bold"}} to="/favorites">Quick Links</Link>
+      <Link style={{ fontWeight: "bold" }} to="/favorites">
+        Quick Links
+      </Link>
       <Link> Coupons & Deals</Link>
       <Link>Gift Card Balance Check</Link>
       <Link>Store Locator</Link>
@@ -53,5 +64,3 @@ export const AccountDropdown = () => {
     </div>
   );
 };
-
-
