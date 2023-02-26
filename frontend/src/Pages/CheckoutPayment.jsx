@@ -171,12 +171,12 @@ export default function CheckoutPayment() {
             <br/>
             <div className="order-summary-fle-div">
               <p>Item Total(1 Items)</p>
-              <Heading  color={"orange.500"} fontSize={"18px"}>{"  "}: Rs.234</Heading>
+              <Heading  color={"orange.500"} fontSize={"18px"}>{"  "}: Rs.{JSON.parse(localStorage.getItem("total"))}</Heading>
             </div>
             <div className="order-summary-fle-div">
               <p>Discount{" "}</p>
               <Heading  color={"orange.500"} fontSize={"18px"} >
-              {" "}: Rs.1999
+              {" "}: Rs.{JSON.parse(localStorage.getItem("saving"))}
               </Heading>
             </div>
             <div className="order-summary-fle-div">
@@ -188,14 +188,9 @@ export default function CheckoutPayment() {
             <hr />
             <div className="order-summary-fle-div">
               <p>Grand Total</p>
-              <Heading  color={"orange.500"} fontSize={"18px"}>: Rs.2198</Heading>
+              <Heading  color={"orange.500"} fontSize={"18px"}>: Rs.{JSON.parse(localStorage.getItem("total"))}</Heading>
             </div>
-            <div className="order-summary-fle-div">
-              <p>(Inclusive of Taxes)</p>
-              <Heading color={"orange.500"} fontSize={"18px"}>
-               : You Saved Rs.1999
-              </Heading>
-            </div>
+           
           </div>
         </div>
       </div>

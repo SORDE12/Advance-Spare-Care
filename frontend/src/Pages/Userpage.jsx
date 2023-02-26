@@ -19,6 +19,8 @@ import { Navigate } from "react-router-dom";
 import { AUTH_LOGIN_RESET } from "../Redux/Authentication/auth.actionTypes";
 
 const Userpage = () => {
+ 
+ 
   const authState = useSelector((state) => state.auth);
   
 

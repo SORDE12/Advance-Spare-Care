@@ -25,9 +25,7 @@ const AllRoutes = () => {
       <Route
         path="/register"
         element={
-          <PrivateRoute>
             <Register />
-          </PrivateRoute>
         }
       />
       <Route path="/products" element={<Products />} />
@@ -41,9 +39,9 @@ const AllRoutes = () => {
       <Route path="/admin/customers" element={<Customers />} />
       <Route path="/admin/addproducts" element={<AddProducts />} />
       <Route path="/user" element={<Userpage />} />
-      <Route path="/checkoutaddress" element={<CheckoutAddress />} />
-      <Route path="/checkoutpayment" element={<CheckoutPayment />} />
-      <Route path="/loading" element={<Loading />} />
+      <Route path="/checkoutaddress"  element={<PrivateRoute><CheckoutAddress  /></PrivateRoute>}/>
+      <Route path="/checkoutpayment" element={<PrivateRoute><CheckoutPayment /></PrivateRoute>}  />
+      <Route path="/loading" element={<Loading />}  />
       <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
     </Routes>
   );
