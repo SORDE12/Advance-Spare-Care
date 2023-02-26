@@ -132,6 +132,55 @@ const Dashboard = () => {
             Motor Oil
           </Text>
         </Box>
+
+        <Box
+          mt={"10px"}
+          height={"220px"}
+          width={"220px"}
+          boxShadow="rgba(0, 0, 0, 0.4) 0px 1px 4px, rgba(0, 0, 0, 0.3) 0px 5px 10px -1px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset"
+          textAlign={"center"}
+          ml={"40px"}
+        >
+          <Heading color={"yellow"} fontSize={"100px"}>
+            42
+          </Heading>
+          <Text fontSize={"20px"}>Active Listings</Text>
+          <Text color={"#00b5b8"} fontSize={"30px"}>
+            Brakes
+          </Text>
+        </Box>
+        <Box
+          mt={"10px"}
+          height={"220px"}
+          width={"220px"}
+          boxShadow="rgba(0, 0, 0, 0.4) 0px 1px 4px, rgba(0, 0, 0, 0.3) 0px 5px 10px -1px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset"
+          textAlign={"center"}
+          ml={"40px"}
+        >
+          <Heading color={"yellow"} fontSize={"100px"}>
+            23
+          </Heading>
+          <Text fontSize={"20px"}>Active Listings</Text>
+          <Text color={"#00b5b8"} fontSize={"30px"}>
+            Drivetrain
+          </Text>
+        </Box>
+        <Box
+          mt={"10px"}
+          height={"220px"}
+          width={"220px"}
+          boxShadow="rgba(0, 0, 0, 0.4) 0px 1px 4px, rgba(0, 0, 0, 0.3) 0px 5px 10px -1px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset"
+          textAlign={"center"}
+          ml={"40px"}
+        >
+          <Heading color={"yellow"} fontSize={"100px"}>
+            37
+          </Heading>
+          <Text fontSize={"20px"}>Active Listings</Text>
+          <Text color={"#00b5b8"} fontSize={"30px"}>
+            Batteries
+          </Text>
+        </Box>
       </SimpleGrid>
       <Text></Text>
     </Box>

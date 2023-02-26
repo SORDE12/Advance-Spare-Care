@@ -5,6 +5,7 @@ import Footer from "./Components/Footer";
 import Admin from "./Pages/Admin"
 
 
+
 function App() {
   
   const adminPath = window.location.pathname === "/admin" ? false : true;
@@ -13,7 +14,7 @@ function App() {
     <div className="App">
       {adminPath ? <Navbar />:<Admin/>}
       
-    
+
       <AllRoutes />
       
       {adminPath && <Footer />}

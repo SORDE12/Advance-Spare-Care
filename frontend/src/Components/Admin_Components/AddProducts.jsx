@@ -18,7 +18,7 @@ import { addData } from "../../Redux/Admin_Products/admin.product.action";
 
 // Function to generate random number
 function randomNumber(min, max) {
-    return Math.ceil(Math.random() * (max - min) + min)
+    return (Math.random() * Math.ceil((max - min) + min))
 }
 
 
@@ -40,7 +40,7 @@ const initialState = {
 const AddProducts = () => {
   const [formData, setFormData] = useState(initialState);
 const toast = useToast()
-const { data} = useSelector(
+const {data} = useSelector(
   (state) => state.Admin_Products_reducer
 );
 const dispatch = useDispatch();
