@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 
 
-export const ProductCard = ({product}) => {
+export const ProductCard = ({key,product}) => {
  
     console.log(product);
   const {
@@ -34,6 +34,7 @@ export const ProductCard = ({product}) => {
         base: "4",
         md: "5",
       }}
+     key={key}
     >
       <Box position="relative">
         <AspectRatio ratio={5 / 3}>

@@ -8,7 +8,7 @@ import { Box, Input, Text, Heading, Select, } from "@chakra-ui/react";
 
 
 export const ProductListing = () => {
-    const [Data,setData] = useState([]);
+    const [data,setData] = useState([]);
     const [ProductCategory, setProductCategory] = useState("");
 
 
@@ -79,9 +79,9 @@ axios.get(`https://shy-ruby-piglet.cyclic.app/products`).then((res)=> setData(re
               md: "10",
             }}
           >
-            {Data.length &&
-              Data.map((product) => (
-                <ProductCard key={product._id} product={product} />
+            {data.length &&
+              data.map((product) => (
+                <ProductCard  key={product._id} product={product} />
               ))}
           </SimpleGrid>
         </Box>

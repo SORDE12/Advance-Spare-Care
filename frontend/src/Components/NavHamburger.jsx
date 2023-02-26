@@ -28,7 +28,7 @@ const NavHamburger = () => {
   const navigate = useNavigate();
 
   const loginFunc = () => {
-    navigate("/signin");
+    navigate("/login");
   };
 
   return (
