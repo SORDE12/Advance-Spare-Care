@@ -19,6 +19,10 @@ const Login = () => {
   console.log("authState: ", authState);
   const dispatch = useDispatch();
 
+  const handleSignup=()=>{
+    navigate("/register")
+  }
+
   React.useEffect(() => {
     if (
       authState.userLogin.message ===
@@ -128,6 +132,7 @@ const Login = () => {
               fontSize: "17px",
               cursor: "pointer",
             }}
+            onClick={handleSignup}
           >
             CREATE ACCOUNT
           </button>

@@ -60,7 +60,6 @@ export const ProductCard = ({product}) => {
         base: "4",
         md: "5",
       }}
-     key={key}
     >
       <Box position="relative">
         <AspectRatio ratio={5 / 3}>
