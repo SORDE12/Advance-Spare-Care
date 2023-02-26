@@ -48,8 +48,9 @@ const AdminLogin = () => {
       
       // dispatch({ type: ADMIN_LOGIN_RESET });
       setTimeout(() => {
+        window.location.reload(true);
         navigate("/admin");
-      }, 2000);
+      }, 10);
     }
   }, [dispatch, navigate, adminState, toast]);
 
@@ -70,7 +71,7 @@ const AdminLogin = () => {
     <>
       <div className="main_container">
         <div className="coverl">
-          <h2 className="signup-heading">Sign In</h2>
+          <h2 className="signup-heading">Admin Sign In</h2>
 
           <p className="input-heading">Email</p>
           <input

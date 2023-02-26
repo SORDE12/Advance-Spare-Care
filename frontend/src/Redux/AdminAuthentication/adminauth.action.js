@@ -41,7 +41,7 @@ export const ADMINLogin = (data) => async (dispatch) => {
       "https://shy-ruby-piglet.cyclic.app/admin/login",
       data
     );
-    // console.log("res: ", res);
+    console.log("res: ", res);
       if(res.data.token){
         dispatch({
           type: ADMIN_LOGIN_SUCCESS,
