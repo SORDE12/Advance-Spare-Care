@@ -1,4 +1,4 @@
-# Advace Spare Care (Auto Parts)
+# Advance Spare Care (Auto Parts)
 Advace Spare Care is an scalable makeup auto parts website platform where the user can come and place their order. It is an Collaborative project. It has a admin panel where admin can do a lot of options.
 
 
