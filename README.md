@@ -53,7 +53,7 @@ A.BackEnd
 
 # 3. Admin Side
 
-![Screenshot (143).png](https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-03-01/Screenshot%20%28143%29_613256.png)
+![Screenshot (144).png](https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-03-01/Screenshot%20%28144%29_905271.png)
 
 
 
