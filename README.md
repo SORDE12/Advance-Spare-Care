@@ -51,4 +51,9 @@ A.BackEnd
 
 ![cartpage](https://user-images.githubusercontent.com/108116297/221491900-5ca117af-5ac0-42f0-9f09-34a4e090e981.png)
 
+# 3. Admin Side
+
+![Screenshot (143).png](https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2023-03-01/Screenshot%20%28143%29_613256.png)
+
+
 
