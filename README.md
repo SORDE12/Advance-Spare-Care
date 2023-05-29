@@ -11,7 +11,7 @@ Advace Spare Care is an scalable makeup auto parts website platform where the us
 5. Tinkle Dass
 
 
-Project link -> https://advance-auto-parts.vercel.app/
+Project link -> https://advance-care.vercel.app/
 
 ### In this project Tech stack used are
 
