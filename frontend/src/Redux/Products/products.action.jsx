@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as types from "./products.types"
 
-const BASE_URL="https://shy-ruby-piglet.cyclic.app"
+const BASE_URL="https://advance-spare-care.onrender.com"
 
 export const getProducts =
   (params) =>

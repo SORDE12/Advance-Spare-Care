@@ -12,11 +12,11 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { User } from "../Components/User";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import { AUTH_LOGIN_RESET } from "../Redux/Authentication/auth.actionTypes";
+// import { AUTH_LOGIN_RESET } from "../Redux/Authentication/auth.actionTypes";
 
 const Userpage = () => {
  
@@ -30,7 +30,7 @@ const Userpage = () => {
   
 
   const getUser = async (token) => {
-    await fetch(`https://shy-ruby-piglet.cyclic.app/users/user`, {
+    await fetch(`https://advance-spare-care.onrender.com/users/user`, {
       headers: {
         Authorization: token,
       },

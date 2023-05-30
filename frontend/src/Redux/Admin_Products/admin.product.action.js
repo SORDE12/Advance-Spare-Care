@@ -13,7 +13,7 @@ export const getData = (ProductCategory, searchValue) => async (dispatch) => {
   try {
     axios
       .get(
-        `https://shy-ruby-piglet.cyclic.app/products?category=${ProductCategory}&desc=${searchValue}`
+        `https://advance-spare-care.onrender.com/products?category=${ProductCategory}&desc=${searchValue}`
       )
       .then((res) =>
         dispatch({
@@ -40,7 +40,7 @@ export const addData = (newdata) => async (dispatch) => {
   console.log("adddata", newdata);
   dispatch({ type: ADD_PRODUCTS });
   try {
-    let data = await fetch(`https://shy-ruby-piglet.cyclic.app/products/add`, {
+    let data = await fetch(`https://advance-spare-care.onrender.com/products/add`, {
       method: "POST",
       body: JSON.stringify(newdata),
 
@@ -62,7 +62,7 @@ export const updateData = (id,newData) => async (dispatch) => {
   console.log("updatedata", id);
   dispatch({ type: UPDATE_PRODUCTS });
   try {
-    let data = await fetch(`https://shy-ruby-piglet.cyclic.app/products/update/${id}`, {
+    let data = await fetch(`https://advance-spare-care.onrender.com/products/update/${id}`, {
       method: "PATCH",
       body: JSON.stringify(newData),
 
@@ -85,7 +85,7 @@ console.log("Delete action called")
   dispatch({ type: REMOVE_PRODUCTS });
   try {
     let data = await fetch(
-      `https://shy-ruby-piglet.cyclic.app/products/delete/${id}`,
+      `https://advance-spare-care.onrender.com/products/delete/${id}`,
       {
         method: "DELETE",
         headers: {

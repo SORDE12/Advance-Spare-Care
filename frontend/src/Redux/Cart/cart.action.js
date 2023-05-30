@@ -1,7 +1,7 @@
-import axios from "axios";
+// import axios from "axios";
 import * as types from "./cart.types";
 
-const BASE_URL = "https://shy-ruby-piglet.cyclic.app";
+const BASE_URL = "https://advance-spare-care.onrender.com";
 
 export const getCartProducts = (token) => async(dispatch) => {
   try{

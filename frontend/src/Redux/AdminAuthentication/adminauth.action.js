@@ -2,7 +2,7 @@ import {
   ADMIN_LOGIN_FAILURE,
   ADMIN_LOGIN_REQUEST,
   ADMIN_LOGIN_SUCCESS,
-  ADMIN_LOGIN_RESET
+  ADMIN_LOGIN_RESET,
 } from "./adminauth.actionTypes.js";
 import axios from "axios";
 
@@ -11,7 +11,7 @@ import axios from "axios";
 //     dispatch({ type: ADMIN_REGISTER_REQUEST });
 
 //     const res = await axios.post(
-//       "https://shy-ruby-piglet.cyclic.app/users/register",
+//       "https://advance-spare-care.onrender.com/users/register",
 //       data
 //     );
 //     // console.log('res: ', res);
@@ -33,34 +33,31 @@ import axios from "axios";
 // };
 
 export const ADMINLogin = (data) => async (dispatch) => {
-// console.log("data: ", data);
+  // console.log("data: ", data);
   try {
     dispatch({ type: ADMIN_LOGIN_REQUEST });
 
     const res = await axios.post(
-      "https://shy-ruby-piglet.cyclic.app/admin/login",
+      "https://advance-spare-care.onrender.com/admin/login",
       data
     );
     console.log("res: ", res);
-      if(res.data.token){
-        dispatch({
-          type: ADMIN_LOGIN_SUCCESS,
-          payload: {
-            token: res.data.token,
-            message: res.data.msg,
-            
-          },
-        });
-      }
-      else{
-        dispatch({
-          type: ADMIN_LOGIN_FAILURE,
-          payload: {
-            message:res.data.msg,
-          },
-        });
-      }
-    
+    if (res.data.token) {
+      dispatch({
+        type: ADMIN_LOGIN_SUCCESS,
+        payload: {
+          token: res.data.token,
+          message: res.data.msg,
+        },
+      });
+    } else {
+      dispatch({
+        type: ADMIN_LOGIN_FAILURE,
+        payload: {
+          message: res.data.msg,
+        },
+      });
+    }
   } catch (error) {
     // console.log("error: ", error);
 
@@ -71,4 +68,8 @@ export const ADMINLogin = (data) => async (dispatch) => {
       },
     });
   }
+};
+export const ADMINLogout = () => async (dispatch) => {
+  // console.log("data: ", data);
+  dispatch({ type: ADMIN_LOGIN_RESET });
 };

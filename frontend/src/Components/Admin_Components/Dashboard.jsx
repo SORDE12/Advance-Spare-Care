@@ -54,15 +54,15 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get(`https://shy-ruby-piglet.cyclic.app/products?category=air`)
+      .get(`https://advance-spare-care.onrender.com/products?category=air`)
       .then((res) => setAirFilters(res.data))
       axios
         .get(
-          `https://shy-ruby-piglet.cyclic.app/products?category=turbo`
+          `https://advance-spare-care.onrender.com/products?category=turbo`
         )
         .then((res) => setTurboChargers(res.data))
         axios
-          .get(`https://shy-ruby-piglet.cyclic.app/products?category=motor`)
+          .get(`https://advance-spare-care.onrender.com/products?category=motor`)
           .then((res) => setMotorOil(res.data));
     
   }, []);
