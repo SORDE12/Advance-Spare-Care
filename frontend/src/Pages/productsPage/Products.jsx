@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Products.module.css";
-import { useLocation, useParams } from "react-router";
+import { useLocation } from "react-router";
 import { getProducts } from "../../Redux/Products/products.action";
 import { Box, Checkbox, Select } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
@@ -14,7 +14,7 @@ const Products = () => {
   const [sort, setSort] = useState("");
   const [order, setOrder] = useState("");
 
-  const { loading, error, products } = useSelector(
+  const { products } = useSelector(
     (store) => store.productManager
   );
   const [searchParams, setSearchParams] = useSearchParams();

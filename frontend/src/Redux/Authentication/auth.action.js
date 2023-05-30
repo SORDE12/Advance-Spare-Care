@@ -14,7 +14,7 @@ export const authRegister = (data) => async (dispatch) => {
     dispatch({ type: AUTH_REGISTER_REQUEST });
 
     const res = await axios.post(
-      "https://shy-ruby-piglet.cyclic.app/users/register",
+      "https://advance-spare-care.onrender.com/users/register",
       data
     );
     console.log('res: ', res);
@@ -41,7 +41,7 @@ export const authLogin = (data) => async (dispatch) => {
     dispatch({ type: AUTH_LOGIN_REQUEST });
 
     const res = await axios.post(
-      "https://shy-ruby-piglet.cyclic.app/users/login",
+      "https://advance-spare-care.onrender.com/users/login",
       data
     );
     console.log("res: ", res);

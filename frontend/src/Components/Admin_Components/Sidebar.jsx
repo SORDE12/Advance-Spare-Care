@@ -27,7 +27,9 @@ import {
   FiBell,
   FiChevronDown,
 } from "react-icons/fi";
- import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+ import { Link, useNavigate } from "react-router-dom";
+import { ADMINLogout } from "../../Redux/AdminAuthentication/adminauth.action";
 
 
 const linkItems = [
@@ -40,6 +42,7 @@ const linkItems = [
 export default function SidebarWithHeader(){
   
   const { isOpen, onOpen, onClose } = useDisclosure();
+  
   return (
     <Box
       minH="10vh"
@@ -139,6 +142,8 @@ const NavItem = ({ path,icon, children, ...rest }) => {
 
 
 const MobileNav = ({ onOpen, ...rest }) => {
+  const dispatch=useDispatch();
+  const nav=useNavigate();
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
@@ -209,7 +214,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
               borderColor={useColorModeValue("gray.200", "gray.700")}
             >
               <MenuItem>Profile</MenuItem>
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onClick={()=>{dispatch(ADMINLogout);nav("/")}}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>

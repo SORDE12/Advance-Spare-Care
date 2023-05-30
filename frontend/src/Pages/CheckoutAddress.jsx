@@ -1,7 +1,7 @@
 import { Heading } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import "./checkout.css";
 
 export default function CheckoutAddress() {
@@ -34,7 +34,7 @@ export default function CheckoutAddress() {
   
 
   const getUser = async (token) => {
-    await fetch(`https://shy-ruby-piglet.cyclic.app/users/user`, {
+    await fetch(`https://advance-spare-care.onrender.com/users/user`, {
       headers: {
         Authorization: token,
       },

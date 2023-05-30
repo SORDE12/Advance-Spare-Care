@@ -84,7 +84,7 @@
     grid-template-rows: repeat(4, auto);
     grid-template-columns: repeat(3, 300px);
     gap: 5rem;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     text-align: center;
     margin: auto;
   }

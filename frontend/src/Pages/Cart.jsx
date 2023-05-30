@@ -7,19 +7,16 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CartDiv from "../Components/CartPage/CartDiv";
 import {
-  deleteItemFromCart,
-  editCartItem,
   getCartProducts,
 } from "../Redux/Cart/cart.action";
-import { useNavigate } from "react-router";
 //import { addOrders } from "../../Redux/Orders/orders.actions";
-import { Flex, Spinner, useToast, Image, Box, Heading } from "@chakra-ui/react";
+import { Image, Box, Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 let dollarIndianLocale = Intl.NumberFormat("en-IN");
 
 
 const Cart = () => {
-  const {products,loading,error} = useSelector((store) => store.cartManager);
+  const {products} = useSelector((store) => store.cartManager);
   const dispatch = useDispatch();
   const [count,setCount]=useState([]);
   
