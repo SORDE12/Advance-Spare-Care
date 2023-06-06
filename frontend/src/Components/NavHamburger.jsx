@@ -30,6 +30,10 @@ const NavHamburger = () => {
   const loginFunc = () => {
     navigate("/login");
   };
+  const goToProducts = () => {
+    console.log("ok");
+    navigate("/products");
+  };
 
   return (
     <div className="Hamburger-box">
@@ -64,7 +68,11 @@ const NavHamburger = () => {
           </DrawerHeader>
 
           <DrawerBody>
-            <Link className="hamburger-catagories-box">
+            <Link
+              onClick={onClose}
+              to={"/products"}
+              className="hamburger-catagories-box"
+            >
               <img
                 src="https://shop.advanceautoparts.com/wcsstore/CVWEB/staticproductimage/2/large/15790154_puo_a35592_pri_larg.jpg"
                 alt=""
@@ -72,7 +80,11 @@ const NavHamburger = () => {
               <p>Air Filter</p>
               <MdOutlineArrowForwardIos />
             </Link>
-            <Link className="hamburger-catagories-box">
+            <Link
+              onClick={onClose}
+              to={"/products"}
+              className="hamburger-catagories-box"
+            >
               <img
                 src="https://m.media-amazon.com/images/I/518gFneyn3L._SL1001_.jpg"
                 alt=""
@@ -80,7 +92,11 @@ const NavHamburger = () => {
               <p>Air tank Filter</p>
               <MdOutlineArrowForwardIos />
             </Link>
-            <Link className="hamburger-catagories-box">
+            <Link
+              onClick={onClose}
+              to={"/products"}
+              className="hamburger-catagories-box"
+            >
               <img
                 src="https://m.media-amazon.com/images/I/71MHDp0AwGL._SY450_.jpg"
                 alt=""
@@ -88,7 +104,11 @@ const NavHamburger = () => {
               <p>Cabin Air Filter</p>
               <MdOutlineArrowForwardIos />
             </Link>
-            <Link className="hamburger-catagories-box">
+            <Link
+              onClick={onClose}
+              to={"/products"}
+              className="hamburger-catagories-box"
+            >
               <img
                 src="https://shop.advanceautoparts.com/wcsstore/CVWEB/staticproductimage/N3255/large/12260512_fmh_f6605qt_pri_larg.jpg"
                 alt=""
@@ -96,7 +116,11 @@ const NavHamburger = () => {
               <p>Oil and fluids</p>
               <MdOutlineArrowForwardIos />
             </Link>
-            <Link className="hamburger-catagories-box">
+            <Link
+              onClick={onClose}
+              to={"/products"}
+              className="hamburger-catagories-box"
+            >
               <img
                 src="https://e7.pngegg.com/pngimages/921/889/png-clipart-car-honda-scooter-spare-part-vehicle-brakes-and-parts-grey-vehicle-tools-photography-happy-birthday-vector-images.png"
                 alt=""
@@ -104,7 +128,11 @@ const NavHamburger = () => {
               <p>Replacement Parts</p>
               <MdOutlineArrowForwardIos />
             </Link>
-            <Link className="hamburger-catagories-box">
+            <Link
+              onClick={onClose}
+              to={"/products"}
+              className="hamburger-catagories-box"
+            >
               <img
                 src="https://shop.advanceautoparts.com/images/performance-brake.jpg"
                 alt=""
@@ -112,7 +140,11 @@ const NavHamburger = () => {
               <p>Performance Part</p>
               <MdOutlineArrowForwardIos />
             </Link>
-            <Link className="hamburger-catagories-box">
+            <Link
+              onClick={onClose}
+              to={"/products"}
+              className="hamburger-catagories-box"
+            >
               <img
                 src="https://shop.advanceautoparts.com/wcsstore/CVWEB/Attachment/staticbusinesscontent/image/menu/Accessories/PaintBodyRepair.jpg"
                 alt=""
@@ -120,7 +152,11 @@ const NavHamburger = () => {
               <p>Accessories</p>
               <MdOutlineArrowForwardIos />
             </Link>
-            <Link className="hamburger-catagories-box">
+            <Link
+              onClick={onClose}
+              to={"/products"}
+              className="hamburger-catagories-box"
+            >
               <img
                 src="https://shop.advanceautoparts.com/wcsstore/CVWEB/Attachment/staticbusinesscontent/image/2021/gasrewards/Gas-Pump.png"
                 alt=""
