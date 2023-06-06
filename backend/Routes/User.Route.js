@@ -29,7 +29,7 @@ UserRouter.post("/register", async (req, res) => {
           await newUser.save();
           res.status(200).send({ msg: "User Registration Suceessful" });
         } catch (e) {
-          res.status(400).send({ msg: "Something Went Wrong" });
+          res.status(201).send({ msg: "Something Went Wrong" });
         }
       }
     });
@@ -43,7 +43,7 @@ UserRouter.post("/login", async (req, res) => {
 
   const user = await UserModel.find({ email });
 
-  if (user.length > 0 ) {
+  if (user.length > 0) {
     bcrypt.compare(password, user[0].password, async (err, result) => {
       if (result) {
         try {
@@ -53,11 +53,11 @@ UserRouter.post("/login", async (req, res) => {
           );
           res.status(200).send({ msg: "Login Suceessful", token: token });
         } catch (e) {
-          res.status(200).send({ msg: "Wrong Credentials", err: e.message });
+          res.status(400).send({ msg: "Wrong Credentials", err: e.message });
         }
       } else {
         res
-          .status(400)
+          .status(201)
           .send({ msg: "Something Went Wrong", error: "Wrong Password" });
       }
     });
@@ -68,7 +68,7 @@ UserRouter.post("/login", async (req, res) => {
   }
 });
 
-UserRouter.get("/user",userAuthentication, async (req, res) => {
+UserRouter.get("/user", userAuthentication, async (req, res) => {
   const { userID } = req.body;
   // console.log(userID);
   try {
@@ -80,6 +80,5 @@ UserRouter.get("/user",userAuthentication, async (req, res) => {
       .send({ msg: "User is not authenticated,Please login first" });
   }
 });
-
 
 module.exports = { UserRouter };

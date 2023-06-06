@@ -62,9 +62,12 @@ AdminRouter.post("/login", async (req, res) => {
   }
 });
 
-AdminRouter.get("/allusers", authentication, async (req, res) => {
+AdminRouter.get("/allusers",authentication, async (req, res) => {
+  
+  // console.log(userID);
   try {
     const user = await UserModel.find();
+    // console.log("70",user)
     res.status(200).send({ msg: "User Details", users: user });
   } catch (e) {
     res
