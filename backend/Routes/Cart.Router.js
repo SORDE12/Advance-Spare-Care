@@ -31,7 +31,6 @@ CartRouter.get("/", userAuthentication, async (req, res) => {
   }
 });
 
-
 CartRouter.patch("/update/:id", userAuthentication, async (req, res) => {
   const payload = req.body;
   const ID = req.params.id;
